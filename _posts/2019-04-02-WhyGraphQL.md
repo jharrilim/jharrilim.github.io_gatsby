@@ -5,8 +5,8 @@ published: true
 
 ### Well, what is it?
 
-GraphQL is a way to bring more control to cliemt applications by allowing
-them to define their own queries (akin to GETs) and their own mutatioms
+GraphQL is a way to bring more control to client applications by allowing
+them to define their own queries (akin to GETs) and their own mutations
 (akin to POSTs). By allowing the client to specify everything upfront,
 you reduce network roundtrips.
 
