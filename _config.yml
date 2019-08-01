@@ -1,6 +1,8 @@
 layout: sidebar
 style: light
 
+highlighter: rouge
+
 plugins:
   - jekyll-octicons
   - jekyll-github-metadata
