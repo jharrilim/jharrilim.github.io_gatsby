@@ -44,3 +44,24 @@ impl Cube { // v----v----|
 let cube1: Cube = Cube::new(); // Declaring a variable with explicit typing
 let cube2 = Cube::new(); // Declaring a variable with implicit typing (this is still static typing!)
 ```
+
+At first glance, these static types may look visually confusing. They are however extremely powerful. In Rust's case, they have the ability
+to describe to the compiler the exact size of the type, so that it may allocate the correct space in memory for that type. Explicit type declarations
+also allow for language tooling developers to provide us with a lot of support. Finding out all of the properties and methods of a class, refactoring field names,
+type hinting, autocompletion; these are all possible to do efficiently and with guaranteed correctness due to static type systems.
+
+So it seems there are a great deal of benefits to be had with static types. It seems like a great way to help the compiler so that it helps us.
+What would happen if we started omitting types though?
+
+### Dynamic Types
+
+Let us look at a case with Javascript:
+
+```javascript
+// Declaring a cube in Javascript. Notice there is no class or struct declaration here.
+const cube = { height: 10, width: 10 };
+
+```
+
+Javascript allows us to go ahead and declare this object without and precondition of defining a type. This allows us to be very succinct with our coding style.
+Since we removed so much information though, how much harder is it for our compilers and linters?
