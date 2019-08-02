@@ -25,7 +25,6 @@ Static types are types that are constant at runtime. To use these types you gene
 declared in the language or its core libraries. In many modern languages, these types can be inferred to remove verbosity.
 
 ```rust
-
 struct Cube {    // Declare a data type named Cube, which can be described by the following fields
     height: i32, // Define a 32 bit integer parameter for the cube named height
     width: i32   // Define a 32 bit integer parameter for the cube named width
@@ -60,7 +59,6 @@ Let us look at a case with Javascript:
 ```javascript
 // Declaring a cube in Javascript. Notice there is no class or struct declaration here.
 const cube = { height: 10, width: 10 };
-
 ```
 
 Javascript allows us to go ahead and declare this object without and precondition of defining a type. This allows us to be very succinct with our coding style.
