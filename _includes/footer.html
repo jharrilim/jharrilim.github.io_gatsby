@@ -1,2 +1,29 @@
   </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script 
+    src="/assets/blockrain/blockrain.jquery.min.js"
+    crossorigin="anonymous"
+    type="application/javascript"
+    ></script>
+  <script>
+    // const hireMe = $('#hireMe');
+    // const yBottom = $(window).height() - hireMe.offset().top - hireMe.height();
+    // const gameHeight = ($(window).height() - yBottom);
+    const game = $('.game');
+    const width = Math.round(game.width() / 24);
+    // game.height(gameHeight);
+    game.blockrain({
+      autoplay: true,
+      playText: '',
+      restartButtonText: 'Play',
+      gameOverText: '',
+      scoreText: 'Score: ',
+      theme: 'candy',
+      blockWidth: width,
+      onLine: function(lines, scoreIncrement, score){
+        $('.score').text(`Score: ${score}`);
+      }
+    });
+  </script>
 </html>

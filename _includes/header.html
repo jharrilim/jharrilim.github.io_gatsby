@@ -16,13 +16,14 @@
   {% assign meta_description = user.bio | strip_html | strip_newlines | xml_escape | truncate: 300 %}
 {% endif %}
 
-<!doctype html>
+<!doctype html />
 <html class="height-full">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="description" content="{{ meta_description }}" />
     <title>{{ user.name }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="{{ "/assets/styles.css" | relative_url }}" rel="stylesheet" type="text/css" />
+    <link href="/assets/blockrain/blockrain.css" />
   </head>
   <body class="bg-white height-full" {% if site.style == 'dark' %}style="background-color: #2f363d !important"{% endif %}>
