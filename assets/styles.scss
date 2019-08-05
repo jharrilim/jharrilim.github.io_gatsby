@@ -53,3 +53,11 @@
 .word-break {
   word-break: break-word;
 }
+
+.li-inside {
+  list-style-position: inside;
+}
+
+.ul-padding > ul {
+  padding-bottom: 0.5em;
+}
