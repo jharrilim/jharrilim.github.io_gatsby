@@ -61,3 +61,16 @@
 .ul-padding > ul {
   padding-bottom: 0.5em;
 }
+
+.highlight, pre.highlight {
+  overflow-x: auto;
+}
+
+.highlight pre {
+  margin-bottom: 0px !important;
+}
+
+p img {
+  border-style: none;
+  width: 100%;
+}
