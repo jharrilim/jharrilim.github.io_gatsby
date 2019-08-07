@@ -5,16 +5,9 @@ published: true
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Static Types](#static-types)
 - [Dynamic Types](#dynamic-types)
-  - [Alright, so what's the benefit of a language with dynamic types?](#alright-so-whats-the-benefit-of-a-language-with-dynamic-types)
-  - [Hey! You keep using Typescript examples. Typescript types are stripped at compile time and therefore do not count!](#hey-you-keep-using-typescript-examples-typescript-types-are-stripped-at-compile-time-and-therefore-do-not-count)
-  - [Alright, Javascript is seriously not that hard though. I've already gotten a good hang for it, I know my best practices, I use linters, and I seriously don't think these are benefits to me.](#alright-javascript-is-seriously-not-that-hard-though-ive-already-gotten-a-good-hang-for-it-i-know-my-best-practices-i-use-linters-and-i-seriously-dont-think-these-are-benefits-to-me)
-  - [Ugh fine, I'll play along. Let's just say these statically typed languages are superior. How do I convince employers to stop hiring for Javascript and to hire for Typescript?](#ugh-fine-ill-play-along-lets-just-say-these-statically-typed-languages-are-superior-how-do-i-convince-employers-to-stop-hiring-for-javascript-and-to-hire-for-typescript)
-  - [Hey man, you've been talking too much about this topic. When are you going to tell me about what strongly and weakly typed means?](#hey-man-youve-been-talking-too-much-about-this-topic-when-are-you-going-to-tell-me-about-what-strongly-and-weakly-typed-means)
 - [Strongly Typed vs Weakly Typed Languages](#strongly-typed-vs-weakly-typed-languages)
-  - [So what I've learned from this is that you're completely biased, and you've most likely stubbed your toe on Javascript, C, and Python, but mostly Javascript.](#so-what-ive-learned-from-this-is-that-youre-completely-biased-and-youve-most-likely-stubbed-your-toe-on-javascript-c-and-python-but-mostly-javascript)
 - [Summary](#summary)
 - [Glossary](#glossary)
 
