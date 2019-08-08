@@ -30,6 +30,7 @@ Let's go over the pros and cons of each.
 Static types are types that are constant at runtime. To use these types you generally must declare them, or use ones that are already declared in the language or its core libraries. In many modern languages, these types can be inferred to remove verbosity.
 
 ```rust
+// Rust
 struct Cube {    // Declare a data type named Cube, which can be described by the following fields
     height: i32, // Define a 32 bit integer parameter for the cube named height
     width: i32   // Define a 32 bit integer parameter for the cube named width
@@ -59,22 +60,25 @@ What would happen if we started omitting types though?
 Let us look at a case with Javascript:
 
 ```javascript
+// Javascript
 // Declaring a cube in Javascript. Notice there is no class or struct declaration here.
 const cube = { height: 10, width: 10 };
 ```
 
-Javascript allows us to go ahead and declare this object without and precondition of defining a type. This allows us to be very succinct with our coding style. Since we removed so much information though, how much harder is it for our compilers and linters? Quite a bit harder, actually. In the example above, you might think "well you've used `const`, so we can make an assumption that it will never change right?" Well, we can assume the cube's pointer doesn't get changed, we cannot make any assumption about the internals of the cube though. This is still valid:
+Javascript allows us to go ahead and declare this object without any precondition of defining a type. This allows us to be very succinct with our coding style. Since we removed so much information though, how much harder is it for our compilers and linters? Quite a bit harder, actually. In the example above, you might think "well you've used `const`, so we can make an assumption that it will never change right?" Well, we can assume the cube's pointer doesn't get changed, we cannot make any assumption about the internals of the cube though. This is still valid:
 
 ```javascript
+// Javascript
 const cube = { height: 10, width: 10 };
 cube.height = null;
 cube.width = { height: this, width: function() { return this.height; } };
 ```
 
-Since we can reassign height and width, we can say this cube has "mutable' properties, and with mutable properties come dynamic memory allocations. In a C program, you can declare an array with a size of 10 * the size of int, and it is guaranteed to not change throughout the entirety of the program.
+Since we can reassign height and width, we can say this cube has "mutable" properties, and with mutable properties come dynamic memory allocations. In a C program, you can declare an array with a size of 10 multiplied by the size of int, and it is guaranteed to not change throughout the entirety of the program.
 That means that the C compiler can go ahead and allocate this at compile time.
 
 ```C
+// C
 int foo[10];
 ```
 
@@ -83,6 +87,7 @@ In Javascript, that assumption cannot be made, so memory allocations must happen
 In Javascript, you can do bizarre things like:
 
 ```javascript
+// Javascript
 const foo = { bar: true, baz: -1 };
 const blahObjectobject = 'blah ' + foo;
 ```
@@ -98,6 +103,7 @@ Alright, here's the hard pill to swallow. __Dynamic types are not worth using an
 There are patterns in Java that will help you avoid this problem. One case is variant method signatures, which can be handled in Java via method overloading:
 
 ```java
+// Java
 class Cube {
     private final int height;
     private final int width;
@@ -123,6 +129,7 @@ class Cube {
 And if we were to do this in Javascript, it would look like:
 
 ```javascript
+// Javascript
 class Cube {
     constructor(height, width) {
         this.height = height;
@@ -146,6 +153,7 @@ I would say it is not. The Javascript version is more difficult to use as an end
 Typescript:
 
 ```typescript
+// Typescript
 let possiblyACube: Cube | null = null; // either a Cube or a null value
 
 let alsoPossiblyACube?: Cube; // Either a Cube or undefined
@@ -154,6 +162,7 @@ let alsoPossiblyACube?: Cube; // Either a Cube or undefined
 or Rust:
 
 ```rust
+// Rust
 let cube_or_null: Option<Cube> = None; // Cube or none
 ```
 
@@ -184,6 +193,7 @@ Ah yes, this part might be a little confusing. Many definitions for Strongly/Wea
 A statically typed language can also be unsafe, should it allow the ability to morph types through unsafe casts. Take C for an example:
 
 ```c
+// C
 int main()
 {
     char *some_str = "foo bar";
@@ -196,6 +206,7 @@ C lets you define types but you can freely cast them as you wish, unto thy own d
 There are also languages like Python which are dynamically and weakly typed. This might be confusing as well, since Python definitely has types, and Python 3 even allows you to statically type your variables, arguments, and return types. You also cannot do `2 + '2'` like you could in Javascript (which dynamically tries to convert the types at runtime). In Python, you can however do:
 
 ```python
+# Python
 foo = True
 foo = 'bar'
 foo = None
@@ -211,6 +222,7 @@ This behavior is what defines it as a dynamic language (albeit less dynamic than
 I actually like Javascript, and I like all the work that was put into it. I like that I can still run Javascript on pages from the early 2000's. The beauty of Javascript is in what it has accomplished for our world, unfortunately not in the language itself. Another thing I like about Javascript is its ability to easily describe generic pure functions in a fairly sensible way, ie. Combinator birds:
 
 ```js
+// Javascript
 const I = a => a;
 const K = a => b => a;
 const KI = a => b => b;
@@ -220,6 +232,7 @@ const T = a => b => b(a);
 These functions are quite easy to reason about, and adding the generic signatures to them as you would in a language like Typescript is much more cumbersome and doesn't really add any value. In F# however I may write the above as:
 
 ```fsharp
+// F#
 let I a = a
 let K a b = a
 let KI a b = b
