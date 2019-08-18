@@ -52,11 +52,13 @@ rasa init --no-prompt .
 
 ### Holy smokes, there are a lot of files. What does all of it mean?
 
-There is indeed. Let's start with the most important part, the data!
+There are indeed. Let's start with the most important part, the data!
 
 ## Data
 
 Our Rasa application (and frankly all analytic applications) will be heavily based on the data that we give it. The quality of your application is dependent on the quality of your data. Let's take a look at the `nlu.md` file that is found within the `data` folder.
+
+### NLU
 
 We have a couple of intents, which look like this:
 
@@ -84,3 +86,36 @@ We have a couple of intents, which look like this:
 ```
 
 This data depicts two things: Headings which include an intent followed by the name of the intent, and some examples of phrases that pertain to that intent. We can use this data to associate phrases that the end user gives us with one of these labelled intents. In technical terms, this is known as a _multi-class classification problem_, since there are multiple known targets for which we must select from.
+
+These intents have a very specific purpose. __Intents are the building blocks for your stories.__ In a story, you compose intents together to, you've guessed it, form a story.
+
+### Stories
+
+In the case of our application, stories are data structures which represent the flow of our application. If you remember those story books from when you were a child where it would give you options at the end of the page in a fashion such as:
+
+> _You say yes to the wizard. Go to page 63._
+>
+> _You say no to the wizard. Go to page 74._
+
+In Rasa, a story is actually similar to these books where you select a path. They are kept in the `stories.md` in the data folder. Your stories should look something like this:
+
+```md
+## happy path
+* greet
+  - utter_greet
+* mood_great
+  - utter_happy
+
+## sad path 1
+* greet
+  - utter_greet
+* mood_unhappy
+  - utter_cheer_up
+  - utter_did_that_help
+* affirm
+  - utter_happy
+```
+
+Each story begins with a "`## header`". Within these headers, you will see a list of `* intents`. These intents can contain possible `- responses` to those intents. With the above data, you may begin either of the two stories with a `greet` intent. After your bot replies back with `utter_greet`, the user responds again. If the user responds with something that falls into the `mood_great` intent, the bot will follow the _happy path_ and reply with `utter_happy`. If the user responds with something that falls into the `mood_unhappy` intent, then the bot will follow the _sad path 1_ and reply with __both__ `utter_cheer_up` and `utter_did_that_help`.
+
+
