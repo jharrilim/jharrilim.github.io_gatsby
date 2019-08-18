@@ -3,8 +3,6 @@ title: Creating a Speech App With Rasa
 published: true
 ---
 
-# This is currently W.I.P.
-
 ![Code of Hammurabi](/assets/code-of-hammurabi.jpg)
 
 ## Overview
@@ -15,18 +13,24 @@ In this post, we will look at how we can create an application that can derive m
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Let's Jump In](#lets-jump-in)
+  - [Holy smokes, there are a lot of files. What does all of it mean?](#holy-smokes-there-are-a-lot-of-files-what-does-all-of-it-mean)
+- [Data](#data)
+  - [NLU](#nlu)
+  - [Stories](#stories)
 
 ## Installation
 
 In order to get started, you will need the following installed on your computer:
 
-- Anaconda (Python 3+)
-- Tensorflow
-- Rasa/Rasa-x
-- PyAudio (and its dependent, portaudio)
-- SpeechRecognition
+- [Anaconda](https://www.anaconda.com/distribution/) (Python 3+)
+- [Tensorflow](https://www.tensorflow.org/install)
+- [Rasa/Rasa-x](https://rasa.com/docs/rasa/user-guide/installation/)
+- [PyAudio](https://pypi.org/project/PyAudio/) (and its dependent, [portaudio](http://www.portaudio.com/))
+- [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
+
+> For Windows users, you will need to have Microsoft's C++ Build tools installed, which you can find [__here__](https://visualstudio.microsoft.com/downloads/).
 
 To install these, activate your `conda` environment and run the following:
 
@@ -117,5 +121,3 @@ In Rasa, a story is actually similar to these books where you select a path. The
 ```
 
 Each story begins with a "`## header`". Within these headers, you will see a list of `* intents`. These intents can contain possible `- responses` to those intents. With the above data, you may begin either of the two stories with a `greet` intent. After your bot replies back with `utter_greet`, the user responds again. If the user responds with something that falls into the `mood_great` intent, the bot will follow the _happy path_ and reply with `utter_happy`. If the user responds with something that falls into the `mood_unhappy` intent, then the bot will follow the _sad path 1_ and reply with __both__ `utter_cheer_up` and `utter_did_that_help`.
-
-
