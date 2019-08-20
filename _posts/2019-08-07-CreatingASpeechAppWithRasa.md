@@ -7,12 +7,14 @@ published: true
 
 ## Overview
 
-The demand for creating speech enabled applications is growing constantly. Whether it be voice or text, we want there are many applications for which our dialogue may be used. Language is the most important technology to ever be created by humans, and it us up to us to take full advantage of it.
+The demand for creating speech enabled applications is growing constantly. Whether it be voice or text, there are many applications for which our dialogue may be used. Language is the most important technology to ever be created by humans, and it us up to us to take full advantage of it.
 
 In this post, we will look at how we can create an application that can derive meaning from text, and respond back in a natural way. I advise that you have at least a basic understanding of Python as well as how to use `conda` and `pip` before hopping into this tutorial.
 
 ## Table of Contents
 
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Let's Jump In](#lets-jump-in)
   - [Holy smokes, there are a lot of files. What does all of it mean?](#holy-smokes-there-are-a-lot-of-files-what-does-all-of-it-mean)
