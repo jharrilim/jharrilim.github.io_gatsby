@@ -9,6 +9,7 @@ This post does not contain ordered content; just a handful of notes for developi
 
 ## [Minikube](https://github.com/kubernetes/minikube)
 
+| | |
 |--:|---|
 | Who | Minikube is for developers. |
 | What | Allows developers to run a Kubernetes cluster. |
