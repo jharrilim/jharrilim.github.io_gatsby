@@ -74,3 +74,7 @@ p img {
   border-style: none;
   width: 100%;
 }
+
+tbody tr td:first-child {
+  padding: 1em;
+}
