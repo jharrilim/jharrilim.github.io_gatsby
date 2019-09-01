@@ -9,6 +9,8 @@ This post does not contain ordered content; just a handful of notes for developi
 
 ## [Minikube](https://github.com/kubernetes/minikube)
 
+### Description
+
 | | |
 |--:|---|
 | Who | Minikube is for developers. |
@@ -17,3 +19,17 @@ This post does not contain ordered content; just a handful of notes for developi
 | When | During the development phase. |
 | Why | Developers can test out deployments locally for quicker testing purposes, or to mitigate costs of cloud deployments. The principles of Minikube can be found [here](https://minikube.sigs.k8s.io/docs/concepts/principles/). |
 | How | [Minikube Guide](https://kubernetes.io/docs/setup/learning-environment/minikube/#quickstart) and [Installation Instructions](https://kubernetes.io/docs/tasks/tools/install-minikube/) |
+
+### Commands
+
+#### Create a Kubernetes cluster with Minikube on Windows/Hyper-V using the Default Network Switch
+
+```sh
+minikube start --vm-driver="hyperv" --hyperv-virtual-switch="Default Switch"
+```
+
+#### Open a dashboard in your browser to view your cluster
+
+```sh
+minikube dashboard
+```
