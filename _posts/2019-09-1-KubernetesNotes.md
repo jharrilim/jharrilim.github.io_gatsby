@@ -3,13 +3,15 @@ title: Kubernetes Notes
 published: true
 ---
 
-This post does not contain ordered content; just a handful of notes for developing with Kubernetes. This will hopefully remove the confusion with the large amount of lingo and concepts needed for understanding Kubernetes.
+This post does not contain ordered content; just a handful of notes for developing with Kubernetes. This will hopefully remove the confusion around the large amount of lingo and concepts needed for understanding Kubernetes.
 
 ----
 
 ## Tools
 
 ### [Kubernetes](https://github.com/kubernetes/kubernetes)
+
+#### Description
 
 | | |
 |--:|---|
