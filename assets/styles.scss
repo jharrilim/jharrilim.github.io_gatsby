@@ -75,7 +75,27 @@ p img {
   width: 100%;
 }
 
+tbody {
+  border-collapse: unset;
+}
+
+thead {
+  display: none;
+}
+
 tbody tr td:first-child {
-  padding: 1em;
+  padding-right: 1em;
   text-align: right;
+  vertical-align: top;
+}
+
+td {
+  padding: 0.8em;
+}
+
+h4 {
+  border-bottom: solid 0.07em;
+  border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190,20,250,10), rgba(90,10,120,10));
+  border-image-slice: 1;
+  padding-bottom: 0.4em;
 }
