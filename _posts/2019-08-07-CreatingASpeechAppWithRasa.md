@@ -21,6 +21,8 @@ In this post, we will look at how we can create an application that can derive m
 - [Data](#data)
   - [NLU](#nlu)
   - [Stories](#stories)
+  - [Now I know what the data is, what do I do with it?](#now-i-know-what-the-data-is-what-do-i-do-with-it)
+  - [What _is_ this domain.yml file?](#what-_is_-this-domainyml-file)
 
 ## Installation
 
@@ -123,3 +125,19 @@ In Rasa, a story is actually similar to these books where you select a path. The
 ```
 
 Each story begins with a "`## header`". Within these headers, you will see a list of `* intents`. These intents can contain possible `- responses` to those intents. With the above data, you may begin either of the two stories with a `greet` intent. After your bot replies back with `utter_greet`, the user responds again. If the user responds with something that falls into the `mood_great` intent, the bot will follow the _happy path_ and reply with `utter_happy`. If the user responds with something that falls into the `mood_unhappy` intent, then the bot will follow the _sad path 1_ and reply with __both__ `utter_cheer_up` and `utter_did_that_help`.
+
+### Now I know what the data is, what do I do with it?
+
+Time to train yourself a model! Simply run the following command:
+
+```sh
+rasa train
+```
+
+That's it!
+
+Well, not quite. I forgot to mention that there is also a `domain.yml` file that is used when running `rasa train` (this `domain.yml` file was one of the files generated from the `rasa init` at the start of this post).
+
+### What _is_ this domain.yml file?
+
+The `domain.yml` file contains all the information your bot needs to know to behave. Right now, it is comprised of __actions__ (these are the responses that are used in the stories), the __intents__ that you wish to use from your `nlu.md`, and some templates for each of your actions (this is where you get to specify what your responses actually do, whereas in the `stories.md`, you are simply stating the flow).
