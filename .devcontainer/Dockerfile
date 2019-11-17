@@ -16,12 +16,24 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+# Set default locale for the environment
+ENV LC_ALL C.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 # Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     # Verify git, process tools installed
     && apt-get -y install git iproute2 procps lsb-release \
     #
+    # Install program to configure locales
+    && apt-get install -y locales \
+    && dpkg-reconfigure locales \
+    && locale-gen C.UTF-8 \
+    && /usr/sbin/update-locale LANG=C.UTF-8 \
+    && echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen \
+    && locale-gen \
     # Install ruby-debug-ide and debase
     && gem install ruby-debug-ide \
     && gem install debase \
@@ -43,3 +55,4 @@ RUN apt-get update \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
+EXPOSE 4000
