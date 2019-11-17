@@ -34,6 +34,9 @@
         {{ user.location }}
       </div>
     {% endif %}
+    <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
+      <a href="/assets/resume.pdf">Resume</a>
+    </div>
     {% if site.social_media %}
       <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
         {% for account in site.social_media %}

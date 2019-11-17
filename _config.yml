@@ -17,7 +17,10 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
+  - scope:
+      path: "assets/certifications"
+    values:
+      pdf: true
 projects:
   sort_by: stars
   # sort_by options:

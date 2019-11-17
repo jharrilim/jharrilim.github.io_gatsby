@@ -1,0 +1,11 @@
+<div class="text-left {% if site.style == 'dark' %}box-shadow bg-gray-dark {% else %}border border-gray-light bg-white{% endif %} rounded-1 p-3">
+    <div class="d-flex flex-justify-between flex-items-start mb-1">
+      <h1 class="f4 lh-condensed mb-1 {% if site.style == 'dark' %} text-white {% endif %}">
+        <a href="{{ site.baseurl }}{{ certification.path }}">
+          {{ certification.basename }}
+        </a>
+      </h1>
+    </div>
+    <div class="mb-2 ws-normal {% if site.style == 'dark' %}text-white {% else %} text-gray{% endif %}">{{ certification.date | date: "%b %d, %Y"}}</div>
+  </div>
+  
