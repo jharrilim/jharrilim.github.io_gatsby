@@ -1,0 +1,19 @@
+- name: AWS Certified SysOps Administrator
+  date: "2018-08-18"
+  path: /assets/pluralsight/aws-certified-sysops-administrator.pdf
+
+- name: Concurrent Programming with Go
+  date: "2018-04-19"
+  path: /assets/pluralsight/concurrent-programming-with-go.pdf
+
+- name: "Go: Getting Started"
+  date: "2018-04-30"
+  path: /assets/pluralsight/go-getting-started.pdf
+
+- name: UX Fundamentals
+  date: "2019-11-09"
+  path: /assets/pluralsight/ux-fundamentals.pdf
+
+- name: Understanding Machine Learning
+  date: "2018-07-07"
+  path: /assets/pluralsight/understanding-machine-learning.pdf
