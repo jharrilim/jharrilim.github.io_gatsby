@@ -1,56 +1,112 @@
 - name: React Native
   url: https://img.shields.io/badge/-React%20Native-555?style=flat-square&logo=React
+  link: https://facebook.github.io/react-native/
+
 - name: TypeScript
   url: https://img.shields.io/badge/-TypeScript-007ACC?style=flat-square&logo=TypeScript
+  link: https://www.typescriptlang.org/
+
 - name: JavaScript
   url: https://img.shields.io/badge/-JavaScript-444?style=flat-square&logo=JavaScript
+  link: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
 - name: Jest
   url: https://img.shields.io/badge/-Jest-C21325?style=flat-square&logo=Jest
+  link: https://jestjs.io/
+
 - name: React
   url: https://img.shields.io/badge/-React-555?style=flat-square&logo=React
+  link: https://reactjs.org/
+
 - name: Angular
   url: https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=Angular
+  link: https://angular.io/
+
 - name: Rust
   url: https://img.shields.io/badge/-Rust-885630?style=flat-square&logo=Rust
+  link: https://www.rust-lang.org/
+
 - name: NodeJS
   url: https://img.shields.io/badge/-Node.js-444?style=flat-square&logo=Node.js
+  link: https://nodejs.org/
+
 - name: NPM
   url: https://img.shields.io/badge/-NPM-444?style=flat-square&logo=NPM
+  link: https://npmjs.com/
+
 - name: DotNet
   url: https://img.shields.io/badge/-.NET-5C2D91?style=flat-square&logo=.Net
+  link: https://dotnet.microsoft.com/
+
 - name: Spring
   url: https://img.shields.io/badge/-Spring-6DB33F?style=flat-square&logo=Spring
+  link: https://spring.io/
+
 - name: Kubernetes
   url: https://img.shields.io/badge/-Kubernetes-444?style=flat-square&logo=Kubernetes
+  link: https://kubernetes.io/
+
 - name: Docker
   url: https://img.shields.io/badge/-Docker-444?style=flat-square&logo=Docker
+  link: https://www.docker.com/
+
+
 - name: Elasticsearch
   url: https://img.shields.io/badge/-Elasticsearch-005571?style=flat-square&logo=Elasticsearch
+  link: https://www.elastic.co/products/elasticsearch
+
 - name: Kibana
   url: https://img.shields.io/badge/-Kibana-005571?style=flat-square&logo=Kibana
+  link: https://www.elastic.co/products/kibana
+
 - name: Beats
   url: https://img.shields.io/badge/-Beats-005571?style=flat-square&logo=Beats
+  link: https://www.elastic.co/products/beats
+
 - name: Jekyll
   url: https://img.shields.io/badge/-Jekyll-CC0000?style=flat-square&logo=Jekyll
+  link: https://jekyllrb.com/
+
 - name: MongoDB
   url: https://img.shields.io/badge/-MongoDB-444?style=flat-square&logo=MongoDB
+  link: https://www.mongodb.com/
+
 - name: Anaconda
   url: https://img.shields.io/badge/-Anaconda-444?style=flat-square&logo=Anaconda
+  link: https://www.anaconda.com/
+
 - name: Python
   url: https://img.shields.io/badge/-Python-444?style=flat-square&logo=Python
+  link: https://www.python.org/
+
 - name: Zeit
   url: https://img.shields.io/badge/-Zeit-000?style=flat-square&logo=Zeit
+  link: https://zeit.co/
+
 - name: Git
-  url: https://img.shields.io/badge/-Git-f0efe7?style=flat-square&logo=Git
+  url: https://img.shields.io/badge/-Git-c7c5b5?style=flat-square&logo=Git
+  link: https://git-scm.com/
+
 - name: Google Cloud
   url: https://img.shields.io/badge/-Google%20Cloud-444?style=flat-square&logo=Google%20Cloud
+  link: https://cloud.google.com/
+
 - name: AWS
   url: https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=Amazon%20AWS
+  link: https://aws.amazon.com/
+
 - name: Azure
   url: https://img.shields.io/badge/-Azure-666?style=flat-square&logo=Microsoft%20Azure
+  link: https://azure.microsoft.com/
+
 - name: Trello
   url: https://img.shields.io/badge/-Trello-0079BF?style=flat-square&logo=Trello
+  link: https://trello.com/
+
 - name: Jira
   url: https://img.shields.io/badge/-Jira-172B4D?style=flat-square&logo=Jira
+  link: https://www.atlassian.com/software/jira
+
 - name: GraphQL
   url: https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=GraphQL
+  link: https://graphql.org/

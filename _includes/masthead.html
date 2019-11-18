@@ -40,7 +40,9 @@
     <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
         {% for badge in site.data.badges %}
           <div class="mr-1 mb-1">
-            <img src="{{ badge.url }}" />
+            <a href="{{ badge.link }}">
+              <img src="{{ badge.url }}" />
+            </a>
           </div>
         {% endfor %}
       </div>
