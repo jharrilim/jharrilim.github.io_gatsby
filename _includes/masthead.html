@@ -37,6 +37,14 @@
     <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
       <a href="/assets/resume.pdf">Resume</a>
     </div>
+    <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
+        {% for badge in site.data.badges %}
+          <div class="mr-1 mb-1">
+            <img src="{{ badge.url }}" />
+          </div>
+        {% endfor %}
+      </div>
+      <div class="mt-4"></div>
     {% if site.social_media %}
       <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
         {% for account in site.social_media %}
