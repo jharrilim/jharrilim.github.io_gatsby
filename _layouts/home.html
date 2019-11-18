@@ -23,8 +23,10 @@
         {% include thoughts.html %}
       </div>
     {% endunless %}
-        
-    {% include certifications.html %}
+
+    <div class="my-6">
+      {% include certifications.html %}
+    </div>
   </div>
 {% else %}
   <div class="d-md-flex stretch-height {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
