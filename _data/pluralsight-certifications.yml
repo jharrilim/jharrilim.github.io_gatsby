@@ -1,23 +1,23 @@
 - name: AWS Certified SysOps Administrator
   date: "2018-08-18"
-  path: /assets/pluralsight/aws-certified-sysops-administrator.pdf
+  path: /assets/certifications/pluralsight/aws-certified-sysops-administrator.pdf
 
 - name: Concurrent Programming with Go
   date: "2018-04-19"
-  path: /assets/pluralsight/concurrent-programming-with-go.pdf
+  path: /assets/certifications/pluralsight/concurrent-programming-with-go.pdf
 
 - name: "Go: Getting Started"
   date: "2018-04-30"
-  path: /assets/pluralsight/go-getting-started.pdf
+  path: /assets/certifications/pluralsight/go-getting-started.pdf
 
 - name: UX Fundamentals
   date: "2019-11-09"
-  path: /assets/pluralsight/ux-fundamentals.pdf
+  path: /assets/certifications/pluralsight/ux-fundamentals.pdf
 
 - name: Understanding Machine Learning
   date: "2018-07-07"
-  path: /assets/pluralsight/understanding-machine-learning.pdf
+  path: /assets/certifications/pluralsight/understanding-machine-learning.pdf
 
 - name: Psychology of Interaction Design
   date: "2019-11-17"
-  path: /assets/pluralsight/psychology-of-interaction-design.pdf
+  path: /assets/certifications/pluralsight/psychology-of-interaction-design.pdf

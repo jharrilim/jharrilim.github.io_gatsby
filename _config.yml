@@ -18,7 +18,7 @@ defaults:
     values:
       layout: "post"
   - scope:
-      path: "assets/certifications"
+      path: "assets/certifications/"
     values:
       pdf: true
 projects:
