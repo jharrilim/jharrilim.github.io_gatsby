@@ -27,6 +27,9 @@
     <div class="my-6">
       {% include certifications.html %}
     </div>
+    <div style="display: flex; justify-content: flex-end;">
+        <a href="#">Back to top</a>
+      </div>
   </div>
 {% else %}
   <div class="d-md-flex stretch-height {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
@@ -53,6 +56,9 @@
         {% endunless %}
 
         {% include certifications.html %}
+        <div style="display: flex; justify-content: flex-end;">
+          <a href="#">Back to top</a>
+        </div>
       </div>
     </div>
   </div>
