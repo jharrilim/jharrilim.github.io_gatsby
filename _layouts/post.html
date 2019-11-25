@@ -44,6 +44,9 @@
       <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
       <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-5">Published {{ page.date | date: "%b %d, %Y"}}</p>
       {{ post_body }}
+      <div style="display: flex; justify-content: flex-end;">
+        <a href="#">Back to top</a>
+      </div>
     </div>
   </div>
 {% else %}
@@ -60,13 +63,13 @@
             <h1 class="f00-light lh-condensed">{{ page.title }}</h1>
             <p class="{% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %} mb-5">Published {{ page.date | date: "%b %d, %Y"}}</p>
             {{ post_body }}
+            <div style="display: flex; justify-content: flex-end;">
+              <a href="#">Back to top</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 {% endif %}
-<div style="display: flex; justify-content: flex-end;">
-  <a href="#">Back to top</a>
-</div>
 {% include footer.html %}
