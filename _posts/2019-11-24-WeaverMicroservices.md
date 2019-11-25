@@ -3,6 +3,8 @@ title: "Weaver: 12-Factor Microservices"
 published: true
 ---
 
+# [Weaver](https://github.com/jharrilim/weaver)
+
 Microservices are hard to implement. There is a lot of upfront work that must be done to get the payoffs down the road. Writing Kubernetes artifacts, setting up CI for each service, and handling multi-stage deployments can be exhausting. Furthermore, these services will most likely be distributed across multiple teams which may choose to use different languages. We can solve the deployment portion of that with Docker, but we also need to supply our developers with containerized development environments as well. Luckily, we can bootstrap most of this. This is where Weaver comes into play.
 
 # Design Goals
