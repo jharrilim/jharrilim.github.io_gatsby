@@ -46,10 +46,18 @@
   background-color: #95989b;
 }
 
-.stretch-height {
-  min-height: 100%;
+
+@media (min-width: 0px) {
+  .stretch-height {
+    min-height: 0%;
+  }    
 }
 
+@media (min-width: 576px) {
+  .stretch-height {
+    min-height: 100%;
+  }
+}
 .stretch-width {
   min-width: 100%;
 }
@@ -116,3 +124,15 @@ h5 {
 .meta-link {
   color: #24292e;
 }
+
+@media (min-width: 0px) {
+
+}
+
+@media (max-width: 576px) {
+  .flex-grow-1 {
+    flex: 1;
+  }
+}
+
+
