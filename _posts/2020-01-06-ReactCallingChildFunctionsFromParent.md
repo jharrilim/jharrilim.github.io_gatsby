@@ -3,7 +3,10 @@ title: "React: Calling Child Functions From Parent"
 published: true
 ---
 
-Passing data to parent's can be done through callbacks. Functions are data too. Let's pass them!
+Here is an example of how you can pass functions to parent components through callbacks. Sometimes you want the parent
+component to define when to invoke a funciton on a child component. An example would be to have a Modal component as the
+root layout, and have it comprised of a ModalHeader, ModalContent, and ModalFooter. If you wish to define multiple modal
+forms inside ModalContent and have them trigger on buttons within the ModalFooter, you may use this strategy.
 
 ```jsx
 import React, { useState, useRef, useEffect } from 'react';
@@ -24,7 +27,7 @@ const FirstModalContent = ({ onMount = () => {} }) => {
     }, [increment, decrement]);
 
     return (
-        <p>{total}<p>;
+        <p>{total}</p>;
     );
 };
 
