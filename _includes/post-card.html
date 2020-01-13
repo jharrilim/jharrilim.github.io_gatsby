@@ -5,6 +5,9 @@
         {{ post.title }}
       </a>
     </h1>
+    {% if post.description %}
+    <!-- <div class="text-gray mb-2 ws-normal word-break">{{ post.description }}</div> -->
+    {% endif %}
   </div>
   <div class="mb-2 ws-normal {% if site.style == 'dark' %}text-white {% else %} text-gray{% endif %}">{{ post.date | date: "%b %d, %Y"}}</div>
 </div>

@@ -33,7 +33,7 @@
       </div>
   </div>
 {% else %}
-  <div class="d-md-flex stretch-height {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
+  <div class="d-md-flex page-stretch {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
     <div class="flex-self-stretch {% if site.style == 'dark' %}bg-gray-dark{% else %}border-md-right border-gray-light bg-white{% endif %} col-md-5 col-lg-4 col-xl-3 px-4 px-md-6 px-lg-7 py-6">
       {% include masthead.html metadata=true %}
     </div>
@@ -46,17 +46,19 @@
           </div>
         {% endunless %}
 
+        {% unless posts_total == 0 %}
+          {% include thoughts.html %}
+        {% endunless %}
+
         {% include projects.html %}
+
+        {% include certifications.html %}
 
         {% if site.topics %}
           {% include interests.html %}
         {% endif %}
 
-        {% unless posts_total == 0 %}
-          {% include thoughts.html %}
-        {% endunless %}
 
-        {% include certifications.html %}
         <div style="display: flex; justify-content: flex-end;">
           <a href="#">Back to top</a>
         </div>

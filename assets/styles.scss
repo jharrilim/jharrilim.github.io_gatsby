@@ -55,7 +55,7 @@
 
 @media (min-width: 576px) {
   .stretch-height {
-    min-height: calc(100% - 64px);
+    min-height: 100%;
   }
 }
 .stretch-width {
@@ -180,4 +180,8 @@ a:hover {
   padding: 16px;
   background-color: #24292e;
   height: 64px;
+}
+
+.page-stretch {
+  min-height: calc(100% - 64px);
 }

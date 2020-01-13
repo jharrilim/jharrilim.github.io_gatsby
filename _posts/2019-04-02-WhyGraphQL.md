@@ -1,6 +1,7 @@
 ---
 title: Why Choose GraphQL?
 published: true
+description: Reasons for choosing to use GraphQL
 ---
 
 ### Well, what is it?
