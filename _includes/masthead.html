@@ -5,7 +5,9 @@
 {% endif %}
 
 <img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 150px;">
-<h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">{% if user.name %}{{ user.name }}{% else %}{{ user.login }}{% endif %}</h1>
+<h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">
+  Joseph Harrison-Lim
+</h1>
 <p class="mb-3 f4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
   {{ site.data.profile.bio }}
 </p>
@@ -60,6 +62,20 @@
         {% endfor %}
       </div>
     {% endif %}
+    <hr />
+    <h3>Publisher Profiles</h3>
+    <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
+        <div class="mr-3 mb-3">
+          <a href="https://www.npmjs.com/~jharrilim" title="npm: jharrilim" aria-label="npm: jharrilim">
+            <span>npm</span>
+          </a>
+        </div>
+        <div class="mr-3 mb-3">
+          <a href="https://marketplace.visualstudio.com/publishers/johali" title="Visual Studio Marketplace: Joseph Harrison-Lim" aria-label="Visual Studio Marketplace: Joseph Harrison-Lim">
+            <span>Visual Studio Marketplace</span>
+          </a>
+        </div>
+    </div>
     <!-- {% if user.hireable %}
       <span id="hireMe" title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
     {% endif %} -->

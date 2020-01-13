@@ -55,7 +55,7 @@
 
 @media (min-width: 576px) {
   .stretch-height {
-    min-height: 100%;
+    min-height: calc(100% - 64px);
   }
 }
 .stretch-width {
@@ -135,9 +135,49 @@ h5 {
   }
 }
 
+@media (max-width: 768px) {
+  .nav-spacer {
+    display: none !important;
+  }
+}
+
 .projects-more-div {
   padding-left: 8px;
   padding-right: 16px;
   justify-content: flex-end;
   flex: 1;
+}
+
+a {
+  cursor: pointer;
+  color: hsl(190, 90%, 30%);
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+a:hover {
+  text-decoration: none;
+  color: hsl(190, 40%, 60%);
+}
+
+.nav-link {
+  color: white;
+  font-weight: 600;
+  // padding: 0.5rem 1rem 0.5rem 0;
+  margin: 0 1rem 0 0;
+}
+
+.content {
+  background-color: hsl(55, 20%, 96%) !important;
+}
+
+.edges {
+  background-color: hsl(157, 20%, 96%) !important;
+}
+
+.navigation {
+  padding: 16px;
+  background-color: #24292e;
+  height: 64px;
 }
