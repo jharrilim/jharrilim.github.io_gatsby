@@ -247,3 +247,106 @@ This is not possible if we declare it such as:
 const { name } = getAnObjectThatHasAPropertyCalledName();
 name = 'Sith Lord'; // Throws an error!
 ```
+
+### Don't Write Redundant Event Handlers (Use Pure Functions)
+
+Event handlers inside function components are bizarre. The code
+is abstracted, but you cannot test it as you would if you refactored
+an event handler in a class component to a field of the component.
+
+In simple terms, the following two components are not the same:
+
+```jsx
+class Foo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: '' };
+  }
+
+  // This can be accessed externally for testing
+  updateSomething = ev => {
+    this.setState(state => ({
+      ...state,
+      text: ev.target.value + 'wow',
+    }));
+  };
+
+  render() {
+    return (
+      <button onClick={this.updateSomething}>
+        Hello
+      </button>
+    );
+  }
+}
+```
+
+and:
+
+```jsx
+const Foo = () => {
+  const [text, setText] = useState('');
+
+  // This cannot be accessed externally for testing
+  const updateSomething = ev => {
+    setText(ev.target.value + 'wow');
+  };
+  return <button onClick={updateSomething}>Hello</button>;
+}
+```
+
+Instead, one should extract that function to make it testable. The
+function that you extract should not take an event as a parameter if
+it only needs one field.
+
+Example:
+
+```jsx
+import React from 'react';
+
+// This is testable
+export const wowify = (aString = '') => aString + 'wow';
+
+const Foo = () => {
+  const [text, setText] = useState('');
+
+  return (
+    <button
+      onClick={({target: { value }}) => setText(wowify(value))}
+    >
+      Hello
+    </button>
+  );
+}
+
+export default Foo;
+```
+
+### Util/Helper Modules Are Banned
+
+Naming a file as `util.js`, `utilities.js`, `helper.js` or anything similar or related to what was listed is a good way to make developers pull their hair out. I know it might be hard to find where to put your functions when
+you want your directory structure to look something like:
+
+```yaml
+src:
+  components:
+    - button.jsx
+  layouts:
+    home:
+      - user-home.layout.jsx
+      - admin-home.layout.jsx
+  pages:
+    home:
+      - home.jsx
+  actions:
+  store:
+  reducers:
+  # ah heck, let's just toss it in ./src
+  - util.js
+```
+
+Honestly, this is a good spot to place such functions, but please,
+give that file a better name. Show filenames some love. For example,
+if you have code related to handling logic related to a user entity,
+just name it `users.js`. If it gets too big, **publish it as a separate
+node module**.
