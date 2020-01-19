@@ -15,6 +15,9 @@ Here are some common patterns for you to try.
     - [Destructure Your Props](#destructure-your-props)
     - [Type Your Props](#type-your-props)
   - [Destructuring Objects](#destructuring-objects)
+  - [Don't Write Redundant Event Handlers (Use Pure Functions)](#dont-write-redundant-event-handlers-use-pure-functions)
+  - [Util/Helper Modules Are Banned](#utilhelper-modules-are-banned)
+- [Project Structure Using Atomic Design (kinda)](#project-structure-using-atomic-design-kinda)
 
 ## Coding Style
 
@@ -292,7 +295,7 @@ const Foo = () => {
     setText(ev.target.value + 'wow');
   };
   return <button onClick={updateSomething}>Hello</button>;
-}
+};
 ```
 
 Instead, one should extract that function to make it testable. The
@@ -317,7 +320,7 @@ const Foo = () => {
       Hello
     </button>
   );
-}
+};
 
 export default Foo;
 ```
@@ -350,3 +353,19 @@ give that file a better name. Show filenames some love. For example,
 if you have code related to handling logic related to a user entity,
 just name it `users.js`. If it gets too big, **publish it as a separate
 node module**.
+
+## Project Structure Using Atomic Design (kinda)
+
+[Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) is
+at the heart of how we build our front end projects, whether you've realized
+it or not. We effectively should be breaking everything down into:
+
+- atoms (lowest level component, eg. Material's button)
+- molecules (comprised of atoms, eg. Material's Input field with input adornments)
+- organisms (comprised of molecules, eg. a form, or a section)
+- templates (describes how to organize your organisms, eg. where you handle responsiveness and layouts)
+- pages (adds the organisms into the template)
+
+Now, how do we do we write this in code?
+
+> TODO
