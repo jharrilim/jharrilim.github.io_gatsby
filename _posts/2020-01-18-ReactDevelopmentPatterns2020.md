@@ -8,6 +8,14 @@ performance, and increase descriptiveness?
 
 Here are some common patterns for you to try.
 
+- [Coding Style](#coding-style)
+  - [Abandon var and let](#abandon-var-and-let)
+  - [Abandon .forEach for Describing Data](#abandon-foreach-for-describing-data)
+  - [Use Function Components](#use-function-components)
+    - [Destructure Your Props](#destructure-your-props)
+    - [Type Your Props](#type-your-props)
+  - [Destructuring Objects](#destructuring-objects)
+
 ## Coding Style
 
 ### Abandon var and let
@@ -146,7 +154,7 @@ components still.
 Want that sweet, delectable, VS Code intellisense? Here is how you can get
 it using
 
-Javascript:
+**Javascript:**
 
 ```jsx
 /**
@@ -188,7 +196,7 @@ const BigComponent = ({
 
 ![](/assets/ReactCodingPatterns/TypeExample.png)
 
-Typescript:
+**Typescript:**
 
 ```tsx
 import React, { FC } from 'react';
