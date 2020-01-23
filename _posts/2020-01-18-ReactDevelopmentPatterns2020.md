@@ -17,6 +17,9 @@ Here are some common patterns for you to try.
   - [Destructuring Objects](#destructuring-objects)
   - [Don't Write Redundant Event Handlers (Use Pure Functions)](#dont-write-redundant-event-handlers-use-pure-functions)
   - [Util/Helper Modules Are Banned](#utilhelper-modules-are-banned)
+- [Redux](#redux)
+  - [Redux Toolkit](#redux-toolkit)
+- [Redux Style Guide](#redux-style-guide)
 - [Project Structure Using Atomic Design (kinda)](#project-structure-using-atomic-design-kinda)
 
 ## Coding Style
@@ -353,6 +356,49 @@ give that file a better name. Show filenames some love. For example,
 if you have code related to handling logic related to a user entity,
 just name it `users.js`. If it gets too big, **publish it as a separate
 node module**.
+
+## Redux
+
+The state management library with the fancy chrome debugger tool.
+
+### Redux Toolkit
+
+If you haven't heard of [redux-toolkit](https://redux-toolkit.js.org/), I highly suggest you take a look at it. This
+is an officially supported library to help you reduce redux boilerplate code. `createSlice` is a very useful function.
+
+Check out their example from [https://redux-toolkit.js.org/usage/usage-guide#simplifying-slices-with-createslice](https://redux-toolkit.js.org/usage/usage-guide#simplifying-slices-with-createslice):
+
+```js
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState: [],
+  reducers: {
+    createPost(state, action) {},
+    updatePost(state, action) {},
+    deletePost(state, action) {}
+  }
+})
+console.log(postsSlice)
+/*
+{
+    name: 'posts',
+    actions : {
+        createPost,
+        updatePost,
+        deletePost,
+    },
+    reducer
+}
+*/
+const { createPost } = postsSlice.actions
+console.log(createPost({ id: 123, title: 'Hello World' }))
+// {type : "posts/createPost", payload : {id : 123, title : "Hello World"}}
+```
+
+## Redux Style Guide
+
+[This entire guide is useful](https://redux.js.org/style-guide/style-guide). This is a must read for using Redux.
+Following these patterns are essential for writing code that is easily maintainable.
 
 ## Project Structure Using Atomic Design (kinda)
 
