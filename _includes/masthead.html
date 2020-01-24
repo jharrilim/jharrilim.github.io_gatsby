@@ -36,6 +36,12 @@
         {{ user.location }}
       </div>
     {% endif %}
+      <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
+        {% octicon code height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Location %}
+        <a href="https://www.hackerrank.com/Josephharrisonl1"  {% if site.style == 'dark' %}class="text-white"{% endif %}>
+          Hackerrank
+        </a>
+      </div>
     <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
       <a href="/assets/resume.pdf">Resume</a>
     </div>
