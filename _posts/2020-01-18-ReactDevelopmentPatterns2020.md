@@ -18,6 +18,8 @@ Here are some common patterns for you to try.
   - [Don't Write Redundant Event Handlers (Use Pure Functions)](#dont-write-redundant-event-handlers-use-pure-functions)
   - [Util/Helper Modules Are Banned](#utilhelper-modules-are-banned)
 - [Redux](#redux)
+  - [Gotchas](#gotchas)
+    - [Mapping the Entire Reducer to Props](#mapping-the-entire-reducer-to-props)
   - [Redux Toolkit](#redux-toolkit)
 - [Redux Style Guide](#redux-style-guide)
 - [Project Structure Using Atomic Design (kinda)](#project-structure-using-atomic-design-kinda)
@@ -360,6 +362,40 @@ node module**.
 ## Redux
 
 The state management library with the fancy chrome debugger tool.
+
+### Gotchas
+
+#### Mapping the Entire Reducer to Props
+
+Doing so will add all of the reducer's fields to your components props.
+This in turn will force the component to re-render whenever **any** of those props get updated, even if you do not use the property. This may cause confusing bugs such as components losing focus when they shouldn't, and will definitely cause performance issues.
+
+What it looks like:
+
+```jsx
+const mapStateToProps = state => {
+  return { ...state.myReducer };
+}
+
+export default connect(
+  mapStateToProps,
+  null
+)(MyComponent);
+```
+
+Fix it by selecting just the props that your component needs:
+
+```jsx
+const mapStateToProps = ({ myReducer }) => ({
+  aPropINeed: myReducer.aPropINeed,
+  anotherPropINeed: myReducer.anotherPropINeed,
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(MyComponent);
+```
 
 ### Redux Toolkit
 
