@@ -22,6 +22,10 @@ Here are some common patterns for you to try.
     - [Mapping the Entire Reducer to Props](#mapping-the-entire-reducer-to-props)
   - [Redux Toolkit](#redux-toolkit)
 - [Redux Style Guide](#redux-style-guide)
+- [Component Design](#component-design)
+  - [Styling](#styling)
+    - [Button.css](#buttoncss)
+    - [Button.jsx](#buttonjsx)
 - [Project Structure Using Atomic Design (kinda)](#project-structure-using-atomic-design-kinda)
 
 ## Coding Style
@@ -435,6 +439,60 @@ console.log(createPost({ id: 123, title: 'Hello World' }))
 
 [This entire guide is useful](https://redux.js.org/style-guide/style-guide). This is a must read for using Redux.
 Following these patterns are essential for writing code that is easily maintainable.
+
+## Component Design
+
+Components that you create should follow common patterns. Adding properties with names that leak too much detail can make your component harder to use. The [Material UI](https://material-ui.com/) set of React components follow a strict API design which allow it to be generic enough for reuse, and easy to learn since they all follow similar patterns. Here are some examples for how you can create extensible components.
+
+### Styling
+
+Good component design will provide generic styling and the ability to override the styles through props if needed. We can provide a `className` property for properties that will be applied to the outermost element, and a `classes` property will be used for customizing internal elements. We can also use `style` to pass in a `CSSElements` object. `className` and `style` are both attributes that React provides. Here is an example of how you can create a styled component with extensible styling:
+
+> Note: In practice, avoiding mixing `className` and `style`. This is for demonstration purposes only.
+
+#### Button.css
+
+```css
+.custon-button {
+  cursor: pointer;
+}
+
+.custon-button-check {
+  color: green;
+}
+```
+
+#### Button.jsx
+
+```jsx
+import React from 'react';
+import './Button.css';
+
+const Button = ({
+  children,
+  className = 'custom-button',
+  classes = {
+    check: 'custom-button-check',
+  },
+  onClick,
+  style = {},
+  checked = false,
+}) => (
+  <button
+    className={className}
+    onClick={onClick}
+    style={{
+      backgroundColor: 'hsl(30, 30%, 60%)',
+      ...style 
+      // Putting this after our own styling will let consumers
+      // override it
+    }}
+  >
+    <span className={classes.check}>{checked ? '✔' : '❌'}</span>
+    {children}
+  </button>
+);
+```
 
 ## Project Structure Using Atomic Design (kinda)
 
