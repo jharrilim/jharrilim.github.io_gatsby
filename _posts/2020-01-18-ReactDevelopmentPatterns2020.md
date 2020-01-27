@@ -462,11 +462,11 @@ Good component design will provide generic styling and the ability to override t
 #### Button.css
 
 ```css
-.custon-button {
+.custom-button {
   cursor: pointer;
 }
 
-.custon-button-check {
+.custom-button-check {
   color: green;
 }
 ```
