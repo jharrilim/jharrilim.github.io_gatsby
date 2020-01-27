@@ -3,6 +3,8 @@ title: "React Development Patterns 2020"
 published: true
 ---
 
+{% raw %}
+
 Trying to keep up with the freshest React features? Want to know how to make your code less error prone, increase
 performance, and increase descriptiveness?
 
@@ -27,6 +29,8 @@ Here are some common patterns for you to try.
     - [Button.css](#buttoncss)
     - [Button.jsx](#buttonjsx)
 - [Project Structure Using Atomic Design (kinda)](#project-structure-using-atomic-design-kinda)
+
+------
 
 ## Coding Style
 
@@ -176,7 +180,7 @@ const Title = ({ text }) => <h1>{text}</h1>;
 ```
 
 > Note: if your props are too long, you can separate them like this:
-{% raw %}
+
 ```jsx
 /**
  * @typedef BigProps
@@ -202,7 +206,6 @@ const BigComponent = ({
 };
 
 ```
-{% endraw %}
 
 > **Niiiice** (although I didn't define _BillInfo_ so it doesn't show up)
 
@@ -363,6 +366,8 @@ if you have code related to handling logic related to a user entity,
 just name it `users.js`. If it gets too big, **publish it as a separate
 node module**.
 
+------
+
 ## Redux
 
 The state management library with the fancy chrome debugger tool.
@@ -435,10 +440,14 @@ console.log(createPost({ id: 123, title: 'Hello World' }))
 // {type : "posts/createPost", payload : {id : 123, title : "Hello World"}}
 ```
 
+------
+
 ## Redux Style Guide
 
 [This entire guide is useful](https://redux.js.org/style-guide/style-guide). This is a must read for using Redux.
 Following these patterns are essential for writing code that is easily maintainable.
+
+------
 
 ## Component Design
 
@@ -494,6 +503,8 @@ const Button = ({
 );
 ```
 
+------
+
 ## Project Structure Using Atomic Design (kinda)
 
 [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) is
@@ -509,3 +520,5 @@ it or not. We effectively should be breaking everything down into:
 Now, how do we do we write this in code?
 
 > TODO
+
+{% endraw %}
