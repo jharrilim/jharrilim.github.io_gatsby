@@ -5,4 +5,4 @@ title: Resume
 
 ## Summary
 
-Resume content, etc
+Currently a work in progress. For now, my old PDF resume can be found on the left. My LinkedIn is also a good place to check.
