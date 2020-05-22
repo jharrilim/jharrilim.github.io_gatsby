@@ -23,7 +23,7 @@ This post contains referential material, and as such, is not meant to be read se
 | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | Deployments are controlled with a manifest file, and allow you to define the state of pods and ReplicaSets. |
 | [Replication Controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) | Replication controllers enable Kubernetes to deploy multiple replicas of a single pod definition. Useful for scaling, self-healing, and rolling updates. |
 | [apiserver](https://github.com/kubernetes/apiserver) | The frontend of the master where all communication occurs. Both the user (usually through `kubectl`) and the cluster communicate to the apiserver. |
-
+| [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) | A StatefulSet is like a Deployment, except that the Pods are given unique identifiers. |
 ----
 
 ## Tools
