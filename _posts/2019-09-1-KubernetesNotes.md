@@ -26,6 +26,7 @@ This post contains referential material, and as such, is not meant to be read se
 | [Stateful Set](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) | A StatefulSet is like a Deployment, except that the Pods are given unique identifiers. |
 | [Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) | Used for declaring what you need in terms of persistence. Kubernetes will handle it for you so that you need not create a PersistentVolume directly. |
 | [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) | The HorizontalPodAutoscaler object is a resource and a controller, and the controller periodically adjusts the number of replicas in a replication controller or deployment to match the observed average CPU utilization to the target specified by user. |
+| [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) | The Secrets API lets you define secrets in multiple different formats, and use them as environment variables or volumes within your pods. The Secrets can be protected through [Role Based Access Control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). In the API Server, the secrets data are stored in [etcd](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/). |
 
 ----
 
