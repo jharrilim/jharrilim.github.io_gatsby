@@ -24,8 +24,8 @@ This post contains referential material, and as such, is not meant to be read se
 | [Replication Controller](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) | Replication controllers enable Kubernetes to deploy multiple replicas of a single pod definition. Useful for scaling, self-healing, and rolling updates. |
 | [apiserver](https://github.com/kubernetes/apiserver) | The frontend of the master where all communication occurs. Both the user (usually through `kubectl`) and the cluster communicate to the apiserver. |
 | [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) | A StatefulSet is like a Deployment, except that the Pods are given unique identifiers. |
-
 | [PersistentVolumeClaims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims) | Used for declaring what you need in terms of persistence. Kubernetes will handle it for you so that you need not create a PersistentVolume directly. |
+| [HorizontalPodAutoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) | The HorizontalPodAutoscaler object is a resource and a controller, and the controller periodically adjusts the number of replicas in a replication controller or deployment to match the observed average CPU utilization to the target specified by user. |
 
 ----
 
