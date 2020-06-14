@@ -24,6 +24,8 @@ Here are some common patterns for you to try.
     - [Mapping the Entire Reducer to Props](#mapping-the-entire-reducer-to-props)
   - [Redux Toolkit](#redux-toolkit)
 - [Redux Style Guide](#redux-style-guide)
+- [React Context](#react-context)
+  - [Map Context to Props](#map-context-to-props)
 - [Component Design](#component-design)
   - [Styling](#styling)
     - [Button.css](#buttoncss)
@@ -446,6 +448,200 @@ console.log(createPost({ id: 123, title: 'Hello World' }))
 
 [This entire guide is useful](https://redux.js.org/style-guide/style-guide). This is a must read for using Redux.
 Following these patterns are essential for writing code that is easily maintainable.
+
+------
+
+## React Context
+
+React Context allows you to manage globally shared state in a simple way. It is even used internally in react-redux. It currently does have some caveats though, as using it requires you to recreate some features that Redux already creates for you.
+
+Here are some guidelines for you to make sure you are using Context correctly:
+
+### Map Context to Props
+
+Sound familiar? We need to do this when using Context so we don't create additional un-necessary rerenders that might give us unexpected behaviour.
+
+Here is an example of how a component gets un-necessarily rerendered when using Context:
+
+```jsx
+import React, { createContext, useState, useContext } from "react";
+import "./styles.css";
+
+const defaultPosition = { x: 0, y: 0 };
+const defaultValue = [defaultPosition, () => {}];
+const CounterContext = createContext(defaultValue);
+
+export const PositionProvider = ({ children }) => {
+  const positionContext = useState({ x: 0, y: 0 });
+  return (
+    <CounterContext.Provider value={positionContext}>
+      {children}
+    </CounterContext.Provider>
+  );
+};
+
+const usePosition = () => useContext(CounterContext);
+
+const XComponent = () => {
+  const [{ x }, setPosition] = usePosition();
+  console.log("Rendering X", x);
+  return (
+    <div>
+      <h2>X: {x}</h2>
+      <button
+        onClick={() => {
+          setPosition(prev => ({
+            ...prev,
+            x: prev.x + 1
+          }));
+        }}
+      >
+        Inc X
+      </button>
+    </div>
+  );
+};
+
+const YComponent = () => {
+  const [{ y }, setPosition] = usePosition();
+  console.log("Rendering Y", y);
+  return (
+    <div>
+      <h2>Y: {y}</h2>
+      <button
+        onClick={() => {
+          setPosition(prev => ({
+            ...prev,
+            y: prev.y + 1
+          }));
+        }}
+      >
+        Inc Y
+      </button>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="App">
+      <XComponent />
+      <YComponent />
+    </div>
+  );
+};
+
+export default function Wrapp() {
+  return (
+    <PositionProvider>
+      <App />
+    </PositionProvider>
+  );
+};
+```
+
+The above example re-renders the X component when you update y from within the YComponent. This is not something we want. To fix this, React has given us `memo`.
+
+Here is an example for how to prevent redundant rerenders:
+
+```jsx
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useMemo,
+  memo
+} from "react";
+import "./styles.css";
+
+const defaultPosition = { x: 0, y: 0 };
+const defaultValue = [defaultPosition, () => {}];
+const CounterContext = createContext(defaultValue);
+
+export const PositionProvider = ({ children }) => {
+  const positionContext = useState({ x: 0, y: 0 });
+  return (
+    <CounterContext.Provider value={positionContext}>
+      {children}
+    </CounterContext.Provider>
+  );
+};
+
+const usePosition = () => useContext(CounterContext);
+
+const XComponent = memo(
+  ({ x, setPosition }) => {
+    console.log("Rendering X", x);
+    return (
+      <div>
+        <h2>X: {x}</h2>
+        <button
+          onClick={() => {
+            setPosition(prev => ({
+              ...prev,
+              x: prev.x + 1
+            }));
+          }}
+        >
+          Inc X
+        </button>
+      </div>
+    );
+  },
+  (prev, next) => prev.x === next.x
+);
+
+const XContainer = () => {
+  const [{ x }, setPosition] = usePosition();
+  return <XComponent x={x} setPosition={setPosition} />;
+};
+
+const YComponent = memo(
+  ({ y, setPosition }) => {
+    console.log("Rendering Y", y);
+    return (
+      <div>
+        <h2>Y: {y}</h2>
+        <button
+          onClick={() => {
+            setPosition(prev => ({
+              ...prev,
+              y: prev.y + 1
+            }));
+          }}
+        >
+          Inc Y
+        </button>
+      </div>
+    );
+  },
+  (prev, next) => prev.y === next.y
+);
+
+const YContainer = () => {
+  const [{ y }, setPosition] = usePosition();
+  return <YComponent y={y} setPosition={setPosition} />;
+};
+
+const App = () => {
+  return (
+    <div className="App">
+      <XContainer />
+      <YContainer />
+    </div>
+  );
+};
+
+export default function Wrapp() {
+  return (
+    <PositionProvider>
+      <App />
+    </PositionProvider>
+  );
+}
+```
+
+Notice that the above is very similar to Redux. We move the state to props, we create a container component, and we check if the props that we use are still the same to determine whether we should update them.
 
 ------
 
