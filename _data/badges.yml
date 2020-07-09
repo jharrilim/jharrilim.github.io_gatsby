@@ -50,7 +50,6 @@
   url: https://img.shields.io/badge/-Docker-444?style=flat-square&logo=Docker
   link: https://www.docker.com/
 
-
 - name: Elasticsearch
   url: https://img.shields.io/badge/-Elasticsearch-005571?style=flat-square&logo=Elasticsearch
   link: https://www.elastic.co/products/elasticsearch

@@ -4,7 +4,7 @@
   {% assign metadata_styles = 'd-flex flex-items-center mb-3' %}
 {% endif %}
 
-<img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 150px;">
+<img src="{{ user.avatar_url }}" alt="A photo of Joseph Harrison-Lim" class="circle mb-3" style="max-width: 150px;">
 <h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">
   Joseph Harrison-Lim
 </h1>
@@ -48,8 +48,8 @@
     <div class="d-flex flex-wrap flex-items-start {% if site.layout == 'stacked' %}flex-justify-center mt-1 mt-md-3{% endif %}">
         {% for badge in site.data.badges %}
           <div class="mr-1 mb-1">
-            <a href="{{ badge.link }}">
-              <img src="{{ badge.url }}" />
+            <a href="{{ badge.link }}" aria-label="Link to {{ badge.name }}">
+              <img src="{{ badge.url }}" alt="A badge representing {{ badge.name }}" />
             </a>
           </div>
         {% endfor %}
