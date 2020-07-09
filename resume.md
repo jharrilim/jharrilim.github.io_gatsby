@@ -3,6 +3,8 @@ layout: resume
 title: Resume
 ---
 
+> _If you want to see the neat pdf version, check the link on the left!_
+
 ## Lead Engineer
 
 ### Scotiabank, Toronto, Canada
