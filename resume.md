@@ -3,7 +3,7 @@ layout: resume
 title: Resume
 ---
 
-> _If you want to see the neat pdf version, check the link on the left!_
+> If you want to see the nifty pdf version, check [here!](https://josephharrisonlim.com/assets/resume.pdf)
 
 ## Lead Engineer
 
