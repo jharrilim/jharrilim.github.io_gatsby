@@ -1,0 +1,17 @@
+:root {
+  --background: hsl(200, 20%, 20%);
+  --color: hsl(200, 80%, 80%);
+}
+
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  background-color: var(--background);
+  color: var(--color);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
