@@ -40,7 +40,7 @@ In order to get started, you will need the following installed on your computer:
 
 To install these, activate your `conda` environment and run the following:
 
-```sh
+```shell
 pip install --upgrade pip
 pip install tensorflow
 pip install rasa-x --extra-index-url https://pypi.rasa.com/simple
@@ -55,7 +55,7 @@ conda install -y -c conda-forge speechrecognition
 
 Now that we've gotten everything we needed to be installed, let's go ahead and create a new directory and initialize it with rasa:
 
-```sh
+```shell
 mkdir speech-app && cd $_
 rasa init --no-prompt .
 ```
@@ -137,7 +137,7 @@ Each story begins with a "`## header`". Within these headers, you will see a lis
 
 Time to train yourself a model! Simply run the following command:
 
-```sh
+```shell
 rasa train
 ```
 

@@ -65,12 +65,12 @@ This post contains referential material, and as such, is not meant to be read se
 
 ##### Create a Kubernetes cluster with Minikube on Windows/Hyper-V using the Default Network Switch
 
-```sh
+```shell
 minikube start --vm-driver="hyperv" --hyperv-virtual-switch="Default Switch"
 ```
 
 ##### Open a dashboard in your browser to view your cluster
 
-```sh
+```shell
 minikube dashboard
 ```

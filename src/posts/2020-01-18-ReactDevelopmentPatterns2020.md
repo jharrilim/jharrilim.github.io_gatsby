@@ -5,8 +5,6 @@ slug: /blog/react-development-patterns-2020
 date: "2020-01-18"
 ---
 
-{% raw %}
-
 Trying to keep up with the freshest React features? Want to know how to make your code less error prone, increase
 performance, and increase descriptiveness?
 
@@ -19,7 +17,7 @@ Here are some common patterns for you to try.
     - [Destructure Your Props](#destructure-your-props)
     - [Type Your Props](#type-your-props)
   - [Destructuring Objects](#destructuring-objects)
-  - [Don't Write Redundant Event Handlers (Use Pure Functions)](#dont-write-redundant-event-handlers-use-pure-functions)
+  - [Don't Write Redundant Event Handlers Unless Using `useCallback`](#dont-write-redundant-event-handlers-unless-using-usecallback)
   - [Util/Helper Modules Are Banned](#utilhelper-modules-are-banned)
 - [Redux](#redux)
   - [Gotchas](#gotchas)
@@ -252,7 +250,7 @@ const { name } = getAnObjectThatHasAPropertyCalledName();
 name = "Sith Lord"; // Throws an error!
 ```
 
-### Don't Write Redundant Event Handlers (Use Pure Functions)
+### Don't Write Redundant Event Handlers Unless Using `useCallback`
 
 Event handlers inside function components are bizarre. The code
 is abstracted, but you cannot test it as you would if you refactored
@@ -691,5 +689,3 @@ it or not. We effectively should be breaking everything down into:
 Now, how do we do we write this in code?
 
 > TODO
-
-{% endraw %}

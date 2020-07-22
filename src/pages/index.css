@@ -1,0 +1,150 @@
+@keyframes tv-title-flyin {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0%;
+    }
+}
+
+@keyframes tv-on {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.tv-background, .tv-foreground {
+    max-height: 50vh;
+
+}
+
+.tv-background {
+    filter: saturate(2.5);
+}
+
+.tv-foreground {
+    filter: saturate(1.5);
+}
+
+.tv-title {
+    background-color: rgba(255, 255,255, 0.8);
+    position: absolute;
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    top: 12%;
+    right: -50%;
+    animation-name: tv-title-flyin;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    z-index: 103;
+}
+
+@media (max-width: 640px) {
+    .tv-title {
+        font-size: 1rem;
+        top: unset;
+        bottom: 0px;
+        right: 0px;
+    }
+}
+
+.tv-bezel {
+    border: 30px solid black;
+    border-radius: 2rem;
+}
+
+.tv-screen {
+    background-color: black;
+    animation-name: tv-on;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.section-1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    min-height: calc(100vh - 58px);
+}
+
+.section-2 {
+    min-height: calc(100vh - 40px);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content auto min-content;
+    padding-bottom: 15px;
+}
+
+.down-arrow {
+    background-color: var(--background);
+    border-radius: 100rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.down-arrow:active {
+    background-color: rgba(220, 220, 220, 0.4);
+    transition-property: background-color;
+    transition-timing-function: linear;
+    transition-duration: 0.1ms;
+}
+
+.down-arrow-hidden {
+    opacity: 0;
+    cursor: default;
+}
+
+#blog-posts {
+    /* For clicking fragment so header doesn't get covered by top nav */
+    padding-top: 57px;
+    margin-top: -57px;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
+}
+
+@media(max-width: 768px) {
+    .blog-posts {
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+    }
+}
+
+.blog-title {
+    font-size: 1.5rem;
+}
+
+.blog-title:hover {
+    text-decoration: underline;
+}
+
+.blog-posts-image {
+    background-position-x: center;   
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 85px;
+}
+
+.max-1000 {
+    max-width: 1000px;
+}
