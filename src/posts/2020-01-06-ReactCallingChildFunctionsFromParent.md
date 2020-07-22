@@ -1,8 +1,8 @@
 ---
-title: "React: Calling Child Functions From Parent"
+title: 'React: Calling Child Functions From Parent'
 published: true
 slug: /blog/react-calling-child-functions-from-parent
-date: "2020-01-06"
+date: '2020-01-06'
 ---
 
 Here is an example of how you can pass functions to parent components through callbacks. Sometimes you want the parent

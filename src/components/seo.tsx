@@ -5,9 +5,9 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { FC } from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface SEOProps {
   description?: string;
@@ -82,16 +82,16 @@ const SEO: FC<SEOProps> = ({
     >
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Libre+Franklin|Open+Sans|Audiowide|Karla|Montserrat" />
+        href="https://fonts.googleapis.com/css?family=Libre+Franklin|Open+Sans|Audiowide|Karla|Montserrat"
+      />
     </Helmet>
   );
-}
+};
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 };
-
 
 export default SEO;

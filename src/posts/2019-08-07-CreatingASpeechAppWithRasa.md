@@ -2,7 +2,7 @@
 title: Creating a Speech App With Rasa
 published: true
 slug: /blog/creating-a-speech-app-with-rasa
-date: "2019-08-07"
+date: '2019-08-07'
 ---
 
 ![Code of Hammurabi](/assets/code-of-hammurabi.jpg)

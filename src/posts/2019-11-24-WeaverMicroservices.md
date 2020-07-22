@@ -1,8 +1,8 @@
 ---
-title: "Weaver: 12-Factor Microservices"
+title: 'Weaver: 12-Factor Microservices'
 published: true
 slug: /blog/weaver-microservices
-date: "2019-11-24"
+date: '2019-11-24'
 ---
 
 # [Weaver](https://github.com/jharrilim/weaver)

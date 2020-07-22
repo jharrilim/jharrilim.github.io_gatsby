@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { graphql, PageProps, Link } from "gatsby";
-import "./blog-template.css";
+import React, { FC } from 'react';
+import { graphql, PageProps, Link } from 'gatsby';
+import './blog-template.css';
 import Main from '../layouts/main';
 import SEO from '../components/seo';
 

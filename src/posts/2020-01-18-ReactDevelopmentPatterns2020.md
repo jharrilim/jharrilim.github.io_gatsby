@@ -1,8 +1,8 @@
 ---
-title: "React Development Patterns 2020"
+title: 'React Development Patterns 2020'
 published: true
 slug: /blog/react-development-patterns-2020
-date: "2020-01-18"
+date: '2020-01-18'
 ---
 
 Trying to keep up with the freshest React features? Want to know how to make your code less error prone, increase
@@ -46,9 +46,9 @@ const foo = () => {
   // Let's assume this if-else block is the only place
   // in this function where we want a to change
   if (something) {
-    a = "ok";
+    a = 'ok';
   } else {
-    a = "not ok";
+    a = 'not ok';
   }
   // Variable 'a' is still mutable after this block.
   // We were unable to effectively express that we no
@@ -60,8 +60,8 @@ To properly describe that our variable should no longer be modified, we should c
 
 ```js
 const isOk = something => {
-  if (something) return "ok";
-  return "not ok";
+  if (something) return 'ok';
+  return 'not ok';
 };
 
 const foo = () => {
@@ -73,7 +73,7 @@ or:
 
 ```js
 const foo = () => {
-  const a = something ? "ok" : "not ok";
+  const a = something ? 'ok' : 'not ok';
 };
 ```
 
@@ -96,7 +96,7 @@ fruits.forEach((fruit, i) => {
 Whereas we should use map:
 
 ```js
-const fruits = ["apples", "bananas", "pears"];
+const fruits = ['apples', 'bananas', 'pears'];
 const fruitObjs = fruits.map((fruit, i) => ({
   id: i,
   name: fruit,
@@ -107,7 +107,7 @@ const fruitObjs = fruits.map((fruit, i) => ({
 > `Object.freeze`:
 
 ```js
-const fruits = ["apples", "bananas", "pears"];
+const fruits = ['apples', 'bananas', 'pears'];
 const fruitObjs = Object.freeze(
   fruits.map((fruit, i) => ({
     id: i,
@@ -132,7 +132,7 @@ Destructuring your function props allows you to declare your functions dependenc
 const MyComponent = props => {
   return (
     <>
-      <h1>{props.title || "Default Title"}</h1>
+      <h1>{props.title || 'Default Title'}</h1>
       {props.children}
     </>
   );
@@ -142,7 +142,7 @@ const MyComponent = props => {
 vs:
 
 ```jsx
-const MyComponent = ({ title = "Default Title", children }) => {
+const MyComponent = ({ title = 'Default Title', children }) => {
   return (
     <>
       <h1>{title}</h1>
@@ -203,7 +203,7 @@ const BigComponent = ({ text = "Bill's bills", saveStuff, billInfo }) => {
 **Typescript:**
 
 ```tsx
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 interface BigComponentProps {
   text: string | undefined;
@@ -240,14 +240,14 @@ We can still mutate the properties of `foo` because **only the pointer to foo is
 
 ```js
 const foo = getAnObjectThatHasAPropertyCalledName();
-foo.name = "Sith Lord"; // Oh no, scary!
+foo.name = 'Sith Lord'; // Oh no, scary!
 ```
 
 This is not possible if we declare it such as:
 
 ```js
 const { name } = getAnObjectThatHasAPropertyCalledName();
-name = "Sith Lord"; // Throws an error!
+name = 'Sith Lord'; // Throws an error!
 ```
 
 ### Don't Write Redundant Event Handlers Unless Using `useCallback`
@@ -262,14 +262,14 @@ In simple terms, the following two components are not the same:
 class Foo extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "" };
+    this.state = { text: '' };
   }
 
   // This can be accessed externally for testing
   updateSomething = ev => {
     this.setState(state => ({
       ...state,
-      text: ev.target.value + "wow",
+      text: ev.target.value + 'wow',
     }));
   };
 
@@ -283,11 +283,11 @@ and:
 
 ```jsx
 const Foo = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   // This cannot be accessed externally for testing
   const updateSomething = ev => {
-    setText(ev.target.value + "wow");
+    setText(ev.target.value + 'wow');
   };
   return <button onClick={updateSomething}>Hello</button>;
 };
@@ -300,13 +300,13 @@ it only needs one field.
 Example:
 
 ```jsx
-import React from "react";
+import React from 'react';
 
 // This is testable
-export const wowify = (aString = "") => aString + "wow";
+export const wowify = (aString = '') => aString + 'wow';
 
 const Foo = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   return (
     <button onClick={({ target: { value } }) => setText(wowify(value))}>
@@ -390,7 +390,7 @@ Check out their example from [https://redux-toolkit.js.org/usage/usage-guide#sim
 
 ```js
 const postsSlice = createSlice({
-  name: "posts",
+  name: 'posts',
   initialState: [],
   reducers: {
     createPost(state, action) {},
@@ -411,7 +411,7 @@ console.log(postsSlice);
 }
 */
 const { createPost } = postsSlice.actions;
-console.log(createPost({ id: 123, title: "Hello World" }));
+console.log(createPost({ id: 123, title: 'Hello World' }));
 // {type : "posts/createPost", payload : {id : 123, title : "Hello World"}}
 ```
 
@@ -437,8 +437,8 @@ Sound familiar? We need to do this when using Context so we don't create additio
 Here is an example of how a component gets un-necessarily rerendered when using Context:
 
 ```jsx
-import React, { createContext, useState, useContext } from "react";
-import "./styles.css";
+import React, { createContext, useState, useContext } from 'react';
+import './styles.css';
 
 const defaultPosition = { x: 0, y: 0 };
 const defaultValue = [defaultPosition, () => {}];
@@ -457,7 +457,7 @@ const usePosition = () => useContext(CounterContext);
 
 const XComponent = () => {
   const [{ x }, setPosition] = usePosition();
-  console.log("Rendering X", x);
+  console.log('Rendering X', x);
   return (
     <div>
       <h2>X: {x}</h2>
@@ -477,7 +477,7 @@ const XComponent = () => {
 
 const YComponent = () => {
   const [{ y }, setPosition] = usePosition();
-  console.log("Rendering Y", y);
+  console.log('Rendering Y', y);
   return (
     <div>
       <h2>Y: {y}</h2>
@@ -524,8 +524,8 @@ import React, {
   useContext,
   useMemo,
   memo,
-} from "react";
-import "./styles.css";
+} from 'react';
+import './styles.css';
 
 const defaultPosition = { x: 0, y: 0 };
 const defaultValue = [defaultPosition, () => {}];
@@ -544,7 +544,7 @@ const usePosition = () => useContext(CounterContext);
 
 const XComponent = memo(
   ({ x, setPosition }) => {
-    console.log("Rendering X", x);
+    console.log('Rendering X', x);
     return (
       <div>
         <h2>X: {x}</h2>
@@ -571,7 +571,7 @@ const XContainer = () => {
 
 const YComponent = memo(
   ({ y, setPosition }) => {
-    console.log("Rendering Y", y);
+    console.log('Rendering Y', y);
     return (
       <div>
         <h2>Y: {y}</h2>
@@ -643,14 +643,14 @@ Good component design will provide generic styling and the ability to override t
 #### Button.jsx
 
 ```jsx
-import React from "react";
-import "./Button.css";
+import React from 'react';
+import './Button.css';
 
 const Button = ({
   children,
-  className = "custom-button",
+  className = 'custom-button',
   classes = {
-    check: "custom-button-check",
+    check: 'custom-button-check',
   },
   onClick,
   style = {},
@@ -660,13 +660,13 @@ const Button = ({
     className={className}
     onClick={onClick}
     style={{
-      backgroundColor: "hsl(30, 30%, 60%)",
+      backgroundColor: 'hsl(30, 30%, 60%)',
       ...style,
       // Putting this after our own styling will let consumers
       // override it
     }}
   >
-    <span className={classes.check}>{checked ? "✔" : "❌"}</span>
+    <span className={classes.check}>{checked ? '✔' : '❌'}</span>
     {children}
   </button>
 );

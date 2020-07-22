@@ -3,7 +3,7 @@ title: Why Choose GraphQL?
 published: true
 description: Reasons for choosing to use GraphQL
 slug: /blog/why-graphql
-date: "2019-05-04"
+date: '2019-05-04'
 ---
 
 ### Well, what is it?

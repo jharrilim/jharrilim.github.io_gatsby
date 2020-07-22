@@ -2,7 +2,7 @@
 title: Kubernetes Notes
 published: true
 slug: /blog/kubernetes-notes
-date: "2019-09-01"
+date: '2019-09-01'
 ---
 
 This post contains referential material, and as such, is not meant to be read sequentially. This contains a handful of notes for developing with or using Kubernetes, and attempts to remove the confusion around the various concepts needed for understanding Kubernetes.

@@ -2,7 +2,7 @@
 title: The Importance of Type Systems
 published: true
 slug: /blog/importance-of-types
-date: "2019-07-31"
+date: '2019-07-31'
 ---
 
 ## Table of Contents
@@ -96,7 +96,7 @@ In Javascript, you can do bizarre things like:
 ```javascript
 // Javascript
 const foo = { bar: true, baz: -1 };
-const blahObjectobject = "blah " + foo;
+const blahObjectobject = 'blah ' + foo;
 ```
 
 In all the code I've ever read, I've never come across a time where this effect was used with a purpose. It really feels like its sole purpose is to cause bugs in your code. This might never happen to you, but if it did, I'm sure you would prefer our good friend the compiler to say _"Hey, it looks like this might be a mistake. Did you perhaps meant to do this?"_ and then proceed to tell us what we should do.
@@ -144,11 +144,11 @@ class Cube {
   }
 
   printCube(formatter) {
-    if (typeof formatter !== "function") {
-      console.log("height: " + this.height + " width: " + this.width);
+    if (typeof formatter !== 'function') {
+      console.log('height: ' + this.height + ' width: ' + this.width);
     } else {
       console.log(
-        formatter("height: " + this.height + " width: " + this.width)
+        formatter('height: ' + this.height + ' width: ' + this.width)
       );
     }
   }

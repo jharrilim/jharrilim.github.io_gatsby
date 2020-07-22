@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
-import React, { forwardRef } from "react";
+import { Link } from 'gatsby';
+import React, { forwardRef } from 'react';
 
 type HTMLHeaderProps = JSX.IntrinsicElements['header'];
 
@@ -9,10 +9,7 @@ export interface HeaderProps extends HTMLHeaderProps {
 
 const Header = forwardRef<HTMLElement, HeaderProps>(
   ({ siteTitle = '', ...props }, ref) => (
-    <header
-      ref={ref}
-      {...props}
-    >
+    <header ref={ref} {...props}>
       <div
         className="xxl-container mx-auto my-0"
         style={{
