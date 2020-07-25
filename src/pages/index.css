@@ -1,76 +1,22 @@
-@keyframes tv-title-flyin {
-    from {
-        right: -100%;
-    }
-    to {
-        right: 0%;
-    }
-}
-
-@keyframes tv-on {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.tv-background, .tv-foreground {
-    max-height: 50vh;
-
-}
-
-.tv-background {
-    filter: saturate(2.5);
-}
-
-.tv-foreground {
-    filter: saturate(1.5);
-}
-
-.tv-title {
-    background-color: rgba(255, 255,255, 0.8);
-    position: absolute;
-    font-family: monospace;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    top: 12%;
-    right: -50%;
-    animation-name: tv-title-flyin;
-    animation-duration: 3s;
-    animation-delay: 0s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    z-index: 103;
-}
-
-@media (max-width: 640px) {
-    .tv-title {
-        font-size: 1rem;
-        top: unset;
-        bottom: 0px;
-        right: 0px;
-    }
-}
-
-.tv-bezel {
-    border: 30px solid black;
-    border-radius: 2rem;
-}
-
-.tv-screen {
-    background-color: black;
-    animation-name: tv-on;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
 .section-1 {
     grid-template-columns: 1fr;
     grid-template-rows: min-content 1fr min-content;
-    min-height: calc(100vh - 58px);
+    min-height: 100vh;
+}
+
+.section-1-hero {
+    min-height: 30vh;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.section-1-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .section-2 {
@@ -79,6 +25,20 @@
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content auto min-content;
     padding-bottom: 15px;
+}
+
+.section-3 {
+    min-height: 100vh;
+}
+
+.section-3-content {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 640px) {
+    .section-3-content {
+        grid-template-columns: 1fr;
+    }
 }
 
 .down-arrow {

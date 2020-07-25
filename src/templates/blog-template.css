@@ -1,4 +1,14 @@
-.blog-post-container {
-    max-width: 1000px;
+.blog__blog-post-container {
+    max-width: 800px;
     margin: auto;
+}
+
+.blog__blog-title {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.blog__blog-date {
+    font-size: 1rem;
+    padding-bottom: 1rem;
 }
