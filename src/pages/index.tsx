@@ -5,7 +5,6 @@ import clsx from 'clsx';
 
 import Main from '../layouts/main';
 import SEO from '../components/seo';
-import sepImg1 from '../images/photos/20200114_201423-md.jpg';
 
 import './index.css';
 
@@ -98,7 +97,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               ref={bioRef}
               style={{ fontSize: '1.25rem' }}
             >
-              Front End Developer. DevOps Engineer. Tech Blogger.
+              Full Stack Developer. DevOps Engineer. Tech Blogger.
             </blockquote>
           </div>
           <blockquote className="max-1000 p-2">
@@ -138,7 +137,11 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
         </div>
       </section>
       <section ref={section3Ref} className="section-3 py-8 px-8  lg:container lg:mx-auto ">
-        <h2>Gallery</h2>
+        <h2 id="gallery" className="pb-8">
+          <a href="#gallery">
+            Gallery
+          </a>
+        </h2>
         <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
           <Img
             className="rounded"
