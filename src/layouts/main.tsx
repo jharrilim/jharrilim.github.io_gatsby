@@ -46,13 +46,13 @@ const Main: FC<MainProps> = ({ children, showHeader = true }) => {
       />
       <div ref={containerRef} className="mx-auto my-0">
         <main className="main">{children}</main>
-        <footer className="pt-12 footer">
+        {/* <footer className="pt-12 footer">
           <div>
             © {new Date().getFullYear()}, Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </>
   );
