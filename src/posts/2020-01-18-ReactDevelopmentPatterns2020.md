@@ -1,6 +1,6 @@
 ---
 title: 'React Development Patterns 2020'
-published: true
+published: false
 slug: /blog/react-development-patterns-2020
 date: '2020-01-18'
 ---

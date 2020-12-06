@@ -5,8 +5,6 @@ import clsx from 'clsx';
 
 import Main from '../layouts/main';
 import SEO from '../components/seo';
-import banner1 from '../images/photos/me-banner-1.jpg';
-import banner1transparent from '../images/photos/me-banner-1-transparent.png';
 import sepImg1 from '../images/photos/20200114_201414-md.jpg';
 
 import './index.css';
@@ -114,7 +112,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
         </h2>
         <div className="blog-posts">
           {data.allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-            <div key={frontmatter.slug} className="blog-post-item px-1 py-3">
+            <div key={frontmatter.slug} className="blog-post-item pl-8 py-3">
               <h3 className="blog-title">
                 <Link to={frontmatter.slug}>
                   {frontmatter.title}
@@ -141,7 +139,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </ul>
           </div>
           <div>
-            <img src={banner1} alt="Me" />
+            <img src={sepImg1} alt="Me" />
           </div>
         </div>
       </section>
@@ -154,6 +152,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 10
       sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
     ) {
       edges {
         node {

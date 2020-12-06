@@ -15,8 +15,12 @@ interface Post {
   };
 }
 
-const BlogTemplate: FC<PageProps<{ markdownRemark: Post }>> = ({ data }) => {
+const BlogTemplate: FC<PageProps<{ markdownRemark: Post | null }>> = ({ data }) => {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
+
+  if (markdownRemark === null)
+    return <></>;
+
   const { frontmatter, html } = markdownRemark;
   return (
     <Main>
@@ -38,7 +42,7 @@ const BlogTemplate: FC<PageProps<{ markdownRemark: Post }>> = ({ data }) => {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } published: { eq: true } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
