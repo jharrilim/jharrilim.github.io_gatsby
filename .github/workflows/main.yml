@@ -30,4 +30,4 @@ jobs:
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-branch: gh-pages
-
+          gatsby-args: --no-color

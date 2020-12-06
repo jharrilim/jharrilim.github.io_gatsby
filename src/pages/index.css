@@ -98,7 +98,7 @@
 }
 
 .blog-posts-image {
-    background-position-x: center;   
+    background-position-x: center;
     background-position-y: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -107,4 +107,8 @@
 
 .max-1000 {
     max-width: 1000px;
+}
+
+.blog-post-item {
+    border-left: 4px solid black;
 }

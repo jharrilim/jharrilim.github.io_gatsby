@@ -114,7 +114,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
         </h2>
         <div className="blog-posts">
           {data.allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-            <div key={frontmatter.slug} className="px-1 py-3">
+            <div key={frontmatter.slug} className="blog-post-item px-1 py-3">
               <h3 className="blog-title">
                 <Link to={frontmatter.slug}>
                   {frontmatter.title}
