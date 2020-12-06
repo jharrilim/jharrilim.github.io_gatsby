@@ -1,11 +1,11 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react';
-import { Link, graphql, PageProps } from 'gatsby';
-
+import { Link, graphql, PageProps, useStaticQuery } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 import clsx from 'clsx';
 
 import Main from '../layouts/main';
 import SEO from '../components/seo';
-import sepImg1 from '../images/photos/20200114_201414-md.jpg';
+import sepImg1 from '../images/photos/20200114_201423-md.jpg';
 
 import './index.css';
 
@@ -22,6 +22,21 @@ interface PageQuery {
       };
     }[];
   };
+  p1: {
+    childImageSharp: {
+      fluid: FluidObject;
+    }
+  };
+  p2: {
+    childImageSharp: {
+      fluid: FluidObject;
+    }
+  };
+  p3: {
+    childImageSharp: {
+      fluid: FluidObject;
+    }
+  };
 }
 
 const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
@@ -31,7 +46,6 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
   const section3Ref = useRef<HTMLElement | null>(null);
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [showHeader, setShowHeader] = useState(false);
-
   const onScroll = (ev: Event) => {
     const shouldShow = document.documentElement.scrollTop <= 2;
     setAtTopOfPage(shouldShow);
@@ -104,8 +118,8 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section ref={section2Ref} className="section-2 py-2 px-8">
-        <h2 id="blog-posts">
+      <section ref={section2Ref} className="section-2 py-2 px-8 md:container md:mx-auto">
+        <h2 id="blog-posts" className="pb-8">
           <a href="#blog-posts" onClick={scrollToBlogPosts}>
             Blog Posts
           </a>
@@ -123,23 +137,43 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           ))}
         </div>
       </section>
-      <section ref={section3Ref} className="section-3">
-        <h2 className="px-8 pt-4">
-          <a href="#about-me">
-            About Me
-          </a>
-        </h2>
-        <div className="section-3-content grid">
-          <div className="px-8">
-            <h2>Things I like</h2>
-            <ul>
-              <li>GraphQL</li>
-              <li>React</li>
-              <li>Rust</li>
-            </ul>
+      <section ref={section3Ref} className="section-3 py-8 px-8  lg:container lg:mx-auto ">
+        <h2>Gallery</h2>
+        <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
+          <Img
+            className="rounded"
+            fluid={data.p1.childImageSharp.fluid}
+            alt="Toronto, downtown"
+          />
+          <div className="p-8 flex items-center">
+            <div>
+              <blockquote className="p-4 border-l-4 border-black">Inspirational instagramable blurb.</blockquote>
+            </div>
           </div>
-          <div>
-            <img src={sepImg1} alt="Me" />
+          <div className="p-8 hidden lg:flex items-center justify-end">
+            <blockquote className="p-4 border-r-4 border-black">
+              Deep quote about life.
+            </blockquote>
+          </div>
+          <Img
+            className="rounded"
+            fluid={data.p2.childImageSharp.fluid}
+            alt="Toronto, downtown"
+          />
+          <div className="p-8 lg:hidden flex items-center">
+            <blockquote className="p-4 border-l-4 border-black">
+              Deep quote about life.
+            </blockquote>
+          </div>
+          <Img
+            className="rounded"
+            fluid={data.p3.childImageSharp.fluid}
+            alt="Toronto, downtown"
+          />
+          <div className="p-8 flex items-center">
+            <blockquote className="p-4 border-l-4 border-black">
+              Statement of gratitude.
+            </blockquote>
           </div>
         </div>
       </section>
@@ -162,6 +196,27 @@ export const pageQuery = graphql`
             published
             date(formatString: "MMMM DD, YYYY")
           }
+        }
+      }
+    }
+    p1: file(relativePath: { eq: "photos/20200114_201414.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    p2: file(relativePath: { eq: "photos/20200114_201423.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    p3: file(relativePath: { eq: "photos/20200114_201432.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }

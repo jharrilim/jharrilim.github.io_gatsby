@@ -1,6 +1,7 @@
 .blog__blog-post-container {
     max-width: 800px;
     margin: auto;
+    padding-top: var(--header-height);
 }
 
 .blog__blog-title {
