@@ -45,19 +45,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.75rem;
+  font-size: 3rem;
+  line-height: 2rem;
+  padding-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.60rem;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 h3 {
-  font-size: 1.45rem;
+  font-size: 1.5rem;
+  padding-left: 0.25rem;
 }
 
 h4 {
-  font-size: 1.30rem;
+  font-size: 1.25rem;
+  padding-left: 0.5rem;
 }
 
 h5 {

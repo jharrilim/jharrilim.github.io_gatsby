@@ -25,11 +25,13 @@ const BlogTemplate: FC<PageProps<{ markdownRemark: Post | null }>> = ({ data }) 
   return (
     <Main>
       <SEO title={frontmatter.title} />
-      <div className="pt-12 md:pt-16 blog__blog-post-container">
-        <Link to="/">&lt; Back</Link>
-        <div className="blog__blog-post">
-          <h1 className="blog__blog-title">{frontmatter.title}</h1>
-          <h2 className="blog__blog-date">{frontmatter.date}</h2>
+      <div className="pt-16 md:pt-16 blog__blog-post-container">
+        <div className="flex justify-between">
+          <Link to="/">&lt; Back</Link>
+          <p>{frontmatter.date}</p>
+        </div>
+        <div className="mt-4">
+          <h1>{frontmatter.title}</h1>
           <div
             className="blog__blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
