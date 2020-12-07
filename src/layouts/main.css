@@ -97,15 +97,10 @@ a:visited {
   max-width: 1600px;
 }
 
-.main {
-  /* margin-top: 58px; */
-}
-
 .header {
   background-color: var(--background);
   z-index: 200;
-  width: 100%;
-  /* height: var(--header-height); */
+  width: 100vw;
   position: fixed;
   top: 0px;
   text-align: center;

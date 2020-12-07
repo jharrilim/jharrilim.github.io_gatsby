@@ -45,7 +45,7 @@ const Main: FC<MainProps> = ({ children, showHeader = true }) => {
         siteTitle={data.site.siteMetadata.title}
       />
       <div ref={containerRef} className="mx-auto my-0">
-        <main className="main">{children}</main>
+        <main>{children}</main>
         {/* <footer className="pt-12 footer">
           <div>
             © {new Date().getFullYear()}, Built with
