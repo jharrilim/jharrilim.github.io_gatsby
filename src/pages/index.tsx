@@ -159,7 +159,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <VisibilitySensor>
                 {({ isVisible }) =>
                   <blockquote className="p-4 quote-border-left overflow-hidden">
-                    <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
+                    <Spring delay={300} to={{ left: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ left: style.left, position: 'relative' }}>
                           Inspirational instagramable blurb.
@@ -178,7 +178,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <VisibilitySensor>
                 {({ isVisible }) =>
                   <blockquote className="p-4 quote-border-right overflow-hidden">
-                    <Spring delay={1000} to={{ right: isVisible ? 0 : -500 }}>
+                    <Spring delay={300} to={{ right: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ right: style.right, position: 'relative' }}>
                           Deep quote about life.
@@ -199,7 +199,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             <VisibilitySensor>
               {({ isVisible }) =>
                 <blockquote className="p-4 quote-border-left overflow-hidden">
-                  <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
+                  <Spring delay={300} to={{ left: isVisible ? 0 : -500 }}>
                     {style =>
                       <animated.span style={{ left: style.left, position: 'relative' }}>
                         Deep quote about life.
@@ -220,7 +220,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <VisibilitySensor>
                 {({ isVisible }) =>
                   <blockquote className="p-4 quote-border-left overflow-hidden">
-                    <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
+                    <Spring delay={300} to={{ left: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ left: style.left, position: 'relative' }}>
                           Statement of gratitude.
