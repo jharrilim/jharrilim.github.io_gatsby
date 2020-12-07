@@ -156,38 +156,38 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           />
           <div className="p-4 lg:p-8 flex items-center">
             <div className="flex items-center min-h-full min-w-full relative">
-              <blockquote className="p-4 quote-border-left overflow-hidden">
-                <VisibilitySensor>
-                  {({ isVisible }) =>
-                    <Spring delay={1000} to={{ left: isVisible ? 0 : -200 }}>
+              <VisibilitySensor>
+                {({ isVisible }) =>
+                  <blockquote className="p-4 quote-border-left overflow-hidden">
+                    <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ left: style.left, position: 'relative' }}>
                           Inspirational instagramable blurb.
                         </animated.span>
                       }
                     </Spring>
-                  }
-                </VisibilitySensor>
-              </blockquote>
+                  </blockquote>
+                }
+              </VisibilitySensor>
               <div className="hidden lg:block absolute top-0 right-0 w-8 h-8 quote-border-top-right"></div>
             </div>
           </div>
           <div className="p-8 hidden lg:flex">
             <div className="flex items-center min-h-full min-w-full relative justify-end">
               <div className="hidden lg:block absolute top-0 left-0 w-8 h-8 quote-border-top-left"></div>
-              <blockquote className="p-4 quote-border-right overflow-hidden">
-                <VisibilitySensor>
-                  {({ isVisible }) =>
-                    <Spring delay={1000} to={{ right: isVisible ? 0 : -200 }}>
+              <VisibilitySensor>
+                {({ isVisible }) =>
+                  <blockquote className="p-4 quote-border-right overflow-hidden">
+                    <Spring delay={1000} to={{ right: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ right: style.right, position: 'relative' }}>
                           Deep quote about life.
                         </animated.span>
                       }
                     </Spring>
-                  }
-                </VisibilitySensor>
-              </blockquote>
+                  </blockquote>
+                }
+              </VisibilitySensor>
             </div>
           </div>
           <Img
@@ -196,9 +196,19 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             alt="Toronto, downtown"
           />
           <div className="p-4 lg:p-8 lg:hidden flex items-center">
-            <blockquote className="p-4 quote-border-left">
-              Deep quote about life.
-            </blockquote>
+            <VisibilitySensor>
+              {({ isVisible }) =>
+                <blockquote className="p-4 quote-border-left overflow-hidden">
+                  <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
+                    {style =>
+                      <animated.span style={{ left: style.left, position: 'relative' }}>
+                        Deep quote about life.
+                      </animated.span>
+                    }
+                  </Spring>
+                </blockquote>
+              }
+            </VisibilitySensor>
           </div>
           <Img
             className="rounded scanlines"
@@ -207,19 +217,19 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           />
           <div className="p-4 lg:p-8 flex">
             <div className="flex items-center min-h-full min-w-full relative">
-              <blockquote className="p-4 quote-border-left overflow-hidden">
-                <VisibilitySensor>
-                  {({ isVisible }) =>
-                    <Spring delay={1000} to={{ left: isVisible ? 0 : -200 }}>
+              <VisibilitySensor>
+                {({ isVisible }) =>
+                  <blockquote className="p-4 quote-border-left overflow-hidden">
+                    <Spring delay={1000} to={{ left: isVisible ? 0 : -500 }}>
                       {style =>
                         <animated.span style={{ left: style.left, position: 'relative' }}>
                           Statement of gratitude.
                         </animated.span>
                       }
                     </Spring>
-                  }
-                </VisibilitySensor>
-              </blockquote>
+                  </blockquote>
+                }
+              </VisibilitySensor>
               <div className="hidden lg:block absolute bottom-0 right-0 w-8 h-8 quote-border-bottom-right"></div>
             </div>
           </div>
