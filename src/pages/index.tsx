@@ -6,7 +6,11 @@ import clsx from 'clsx';
 import Main from '../layouts/main';
 import SEO from '../components/seo';
 import Logo from '../images/i.svg';
+
 import './index.css';
+import { animated, useSpring } from 'react-spring';
+import { Spring } from 'react-spring/renderprops';
+import VisibilitySensor from 'react-visibility-sensor';
 
 interface PageQuery {
   allMarkdownRemark: {
@@ -45,6 +49,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
   const section3Ref = useRef<HTMLElement | null>(null);
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [showHeader, setShowHeader] = useState(false);
+
   const onScroll = (ev: Event) => {
     const shouldShow = document.documentElement.scrollTop <= 2;
     setAtTopOfPage(shouldShow);
@@ -87,14 +92,10 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
       <SEO title="Home" />
       <section className="section-1 grid">
         <div className="section-1-hero flex items-center justify-center pt-4">
-          {/* <Img
-            className="min-w-full"
-            fixed={data.i.childImageSharp.fixed}
-            alt="Obscure avatar image"
-          /> */}
         </div>
         <div className="flex section-1-quotes flex-col items-center justify-evenly px-4">
           <div className="flex flex-col items-center">
+            {/* <AnimatedLogo className="h-20 w-20 lg:h-24 lg:w-24" /> */}
             <Logo className="h-20 w-20 lg:h-24 lg:w-24" />
             <h1 ref={titleNameRef} className="text-center" style={{ fontFamily: 'Montserrat, Segoe UI, sans', fontSize: '1.5rem' }}>Joseph Harrison-Lim</h1>
             <blockquote
@@ -155,17 +156,37 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           />
           <div className="p-4 lg:p-8 flex items-center">
             <div className="flex items-center min-h-full min-w-full relative">
-              <blockquote className="p-4 border-l-4 border-black">
-                Inspirational instagramable blurb.
-                </blockquote>
+              <blockquote className="p-4 quote-border-left overflow-hidden">
+                <VisibilitySensor>
+                  {({ isVisible }) =>
+                    <Spring delay={1000} to={{ left: isVisible ? 0 : -200 }}>
+                      {style =>
+                        <animated.span style={{ left: style.left, position: 'relative' }}>
+                          Inspirational instagramable blurb.
+                        </animated.span>
+                      }
+                    </Spring>
+                  }
+                </VisibilitySensor>
+              </blockquote>
               <div className="hidden lg:block absolute top-0 right-0 w-8 h-8 quote-border-top-right"></div>
             </div>
           </div>
           <div className="p-8 hidden lg:flex">
             <div className="flex items-center min-h-full min-w-full relative justify-end">
               <div className="hidden lg:block absolute top-0 left-0 w-8 h-8 quote-border-top-left"></div>
-              <blockquote className="p-4 border-r-4 border-black">
-                Deep quote about life.
+              <blockquote className="p-4 quote-border-right overflow-hidden">
+                <VisibilitySensor>
+                  {({ isVisible }) =>
+                    <Spring delay={1000} to={{ right: isVisible ? 0 : -200 }}>
+                      {style =>
+                        <animated.span style={{ right: style.right, position: 'relative' }}>
+                          Deep quote about life.
+                        </animated.span>
+                      }
+                    </Spring>
+                  }
+                </VisibilitySensor>
               </blockquote>
             </div>
           </div>
@@ -175,7 +196,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             alt="Toronto, downtown"
           />
           <div className="p-4 lg:p-8 lg:hidden flex items-center">
-            <blockquote className="p-4 border-l-4 border-black">
+            <blockquote className="p-4 quote-border-left">
               Deep quote about life.
             </blockquote>
           </div>
@@ -186,8 +207,18 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           />
           <div className="p-4 lg:p-8 flex">
             <div className="flex items-center min-h-full min-w-full relative">
-              <blockquote className="p-4 border-l-4 border-black">
-                Statement of gratitude.
+              <blockquote className="p-4 quote-border-left overflow-hidden">
+                <VisibilitySensor>
+                  {({ isVisible }) =>
+                    <Spring delay={1000} to={{ left: isVisible ? 0 : -200 }}>
+                      {style =>
+                        <animated.span style={{ left: style.left, position: 'relative' }}>
+                          Statement of gratitude.
+                        </animated.span>
+                      }
+                    </Spring>
+                  }
+                </VisibilitySensor>
               </blockquote>
               <div className="hidden lg:block absolute bottom-0 right-0 w-8 h-8 quote-border-bottom-right"></div>
             </div>
