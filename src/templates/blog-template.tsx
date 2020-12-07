@@ -25,7 +25,7 @@ const BlogTemplate: FC<PageProps<{ markdownRemark: Post | null }>> = ({ data }) 
   return (
     <Main>
       <SEO title={frontmatter.title} />
-      <div className={`blog__blog-post-container`}>
+      <div className="pt-12 md:pt-16 blog__blog-post-container">
         <Link to="/">&lt; Back</Link>
         <div className="blog__blog-post">
           <h1 className="blog__blog-title">{frontmatter.title}</h1>

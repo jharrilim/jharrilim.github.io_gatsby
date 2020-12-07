@@ -1,7 +1,6 @@
 .blog__blog-post-container {
     max-width: 800px;
     margin: auto;
-    padding-top: var(--header-height);
 }
 
 .blog__blog-title {
@@ -12,4 +11,20 @@
 .blog__blog-date {
     font-size: 1rem;
     padding-bottom: 1rem;
+}
+
+td {
+    padding: 1rem;
+}
+
+td[align="right"] {
+    padding-right: 1.5rem;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 100px;
+    height: 2px;
+    background: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
 }

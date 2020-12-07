@@ -124,3 +124,24 @@ body {
     height: var(--header-height);
     width: var(--header-height);
 }
+
+.quote-border-top-right {
+    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-slice: 1;
+    border-top: 2px solid;
+    border-right: 2px solid;
+}
+
+.quote-border-top-left {
+    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-slice: 1;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+
+.quote-border-bottom-right {
+    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-slice: 1;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}

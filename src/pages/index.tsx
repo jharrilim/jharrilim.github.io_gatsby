@@ -149,22 +149,28 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
         </h2>
         <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
           <Img
-            className="rounded"
+            className="rounded scanlines"
             fluid={data.p1.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
           <div className="p-4 lg:p-8 flex items-center">
-            <div>
-              <blockquote className="p-4 border-l-4 border-black">Inspirational instagramable blurb.</blockquote>
+            <div className="flex items-center min-h-full min-w-full relative">
+              <blockquote className="p-4 border-l-4 border-black">
+                Inspirational instagramable blurb.
+                </blockquote>
+              <div className="hidden lg:block absolute top-0 right-0 w-8 h-8 quote-border-top-right"></div>
             </div>
           </div>
-          <div className="p-8 hidden lg:flex items-center justify-end">
-            <blockquote className="p-4 border-r-4 border-black">
-              Deep quote about life.
-            </blockquote>
+          <div className="p-8 hidden lg:flex">
+            <div className="flex items-center min-h-full min-w-full relative justify-end">
+              <div className="hidden lg:block absolute top-0 left-0 w-8 h-8 quote-border-top-left"></div>
+              <blockquote className="p-4 border-r-4 border-black">
+                Deep quote about life.
+              </blockquote>
+            </div>
           </div>
           <Img
-            className="rounded"
+            className="rounded scanlines"
             fluid={data.p2.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
@@ -174,14 +180,17 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </blockquote>
           </div>
           <Img
-            className="rounded"
+            className="rounded scanlines"
             fluid={data.p3.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
-          <div className="p-4 lg:p-8 flex items-center">
-            <blockquote className="p-4 border-l-4 border-black">
-              Statement of gratitude.
-            </blockquote>
+          <div className="p-4 lg:p-8 flex">
+            <div className="flex items-center min-h-full min-w-full relative">
+              <blockquote className="p-4 border-l-4 border-black">
+                Statement of gratitude.
+              </blockquote>
+              <div className="hidden lg:block absolute bottom-0 right-0 w-8 h-8 quote-border-bottom-right"></div>
+            </div>
           </div>
         </div>
       </section>
