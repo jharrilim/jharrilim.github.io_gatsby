@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
-import React, { forwardRef, Ref, useState, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import { animated, useSpring } from 'react-spring';
+import Logo from '../images/i.svg';
 
 type HTMLHeaderProps = JSX.IntrinsicElements['header'];
 
@@ -14,15 +15,12 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
     const s = useSpring({ top: show ? 0 : -100 });
 
     return (
-      <animated.header ref={ref} {...props} style={s}>
+      <animated.header className="h-12 md:h-16" ref={ref} {...props} style={s}>
         <div
-          className="xxl-container mx-auto my-0"
-          style={{
-            paddingTop: '0.5rem',
-            paddingBottom: '0.5rem',
-          }}
+          className="xxl-container mx-auto my-0 flex justify-center items-center py-2"
         >
-          <h1 id="siteTitle" style={{ margin: 0, fontSize: '1.5rem', fontFamily: 'Montserrat' }}>
+          <Logo className="h-12 w-12 md:h-16 md:w-16 pr-4 header-logo flex" />
+          <h1 id="siteTitle" className="m-0 text-2xl" style={{ fontFamily: 'Montserrat' }}>
             <Link
               to="/"
             >

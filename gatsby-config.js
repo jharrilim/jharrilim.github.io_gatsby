@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Joseph Harrison-Lim`,
     description: `Joseph Harrison-Lim's personal website.`,
-    author: `@gatsbyjs`,
+    author: `Joseph Harrison-Lim`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,6 +18,13 @@ module.exports = {
       options: {
         name: `posts`,
         path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        name: `svgs`,
+        path: `${__dirname}/src/images/*.svg`,
       },
     },
     {
