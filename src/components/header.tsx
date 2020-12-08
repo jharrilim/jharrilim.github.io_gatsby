@@ -20,13 +20,13 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
           className="xxl-container mx-auto my-0 flex justify-center items-center py-2"
         >
           <Logo className="h-12 w-12 md:h-16 md:w-16 pr-4 header-logo flex" />
-          <h1 id="siteTitle" className="m-0 text-2xl" style={{ fontFamily: 'Montserrat' }}>
+          <p id="siteTitle" className="m-0 text-2xl" style={{ fontFamily: 'Montserrat' }}>
             <Link
               to="/"
             >
               {siteTitle}
             </Link>
-          </h1>
+          </p>
         </div>
       </animated.header>
     );

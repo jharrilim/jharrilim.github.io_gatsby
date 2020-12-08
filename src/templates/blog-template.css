@@ -3,8 +3,13 @@
   margin: auto;
 }
 
+.blog__blog-post-container p {
+  word-spacing: 0.3ch;
+  line-height: 1.7em;
+}
+
 .blog__blog-post-container h1 {
-  line-height: 2rem;
+  line-height: 1.25em;
 }
 
 .blog__blog-title {

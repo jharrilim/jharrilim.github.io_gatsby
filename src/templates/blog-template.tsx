@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { graphql, PageProps, Link } from 'gatsby';
 import './blog-template.css';
-import Main from '../layouts/main';
 import SEO from '../components/seo';
+import Post from '../layouts/post';
 
 interface Post {
   html: string;
@@ -23,7 +23,7 @@ const BlogTemplate: FC<PageProps<{ markdownRemark: Post | null }>> = ({ data }) 
 
   const { frontmatter, html } = markdownRemark;
   return (
-    <Main>
+    <Post>
       <SEO title={frontmatter.title} />
       <div className="pt-16 md:pt-16 blog__blog-post-container">
         <div className="flex justify-between">
@@ -38,7 +38,7 @@ const BlogTemplate: FC<PageProps<{ markdownRemark: Post | null }>> = ({ data }) 
           />
         </div>
       </div>
-    </Main>
+    </Post>
   );
 };
 
