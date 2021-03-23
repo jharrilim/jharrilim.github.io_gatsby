@@ -150,7 +150,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
         </h2>
         <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
           <Img
-            className="rounded scanlines"
+            className="rounded"
             fluid={data.p1.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
@@ -191,7 +191,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </div>
           </div>
           <Img
-            className="rounded scanlines"
+            className="rounded"
             fluid={data.p2.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
@@ -211,7 +211,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </VisibilitySensor>
           </div>
           <Img
-            className="rounded scanlines"
+            className="rounded"
             fluid={data.p3.childImageSharp.fluid}
             alt="Toronto, downtown"
           />
