@@ -111,6 +111,12 @@ a:visited {
   position: fixed;
   top: 0px;
   text-align: center;
+  transition: transform 0.5s ease-out;
+  transform: translateY(0px);
+}
+
+.hide-header {
+  transform: translateY(-100px);
 }
 
 .footer {

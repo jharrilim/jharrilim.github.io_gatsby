@@ -9,33 +9,33 @@ import React, { FC } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from '../components/header';
 import '../styles/tailwind.css';
+import { IndexContext } from '../contexts';
 
 export interface PostProps {
-  showHeader?: boolean;
+  hideHeader?: boolean;
 }
 
-const Post: FC<PostProps> = ({ children, showHeader = true }) => {
+const Post: FC<PostProps> = ({ children, hideHeader = false }) => {
   const data = useStaticQuery(graphql`
-    query {
+    query PostSiteTitle {
       site {
         siteMetadata {
           title
         }
       }
-    }
+    } 
   `);
 
   return (
-    <>
+    <IndexContext.Provider value={{ hideHeader }}>
       <Header
-        show={showHeader}
         className="header"
         siteTitle={data.site.siteMetadata.title}
       />
       <div className="mx-auto my-0">
         <main>{children}</main>
       </div>
-    </>
+    </IndexContext.Provider>
   );
 };
 
