@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import Main from '../layouts/main';
 import SEO from '../components/seo';
-import Logo from '../images/i.svg';
+import Logo from '../images/i2.svg';
 
 import './index.css';
 import { animated, Spring } from 'react-spring';
