@@ -33,8 +33,14 @@ const Hexagon: FC<Omit<RegularPolygonConfig, 'sides'>> = ({
 
   return (
     <Spring
-      from={{ fill: 'rgb(255,255,255)' }}
-      to={{ fill: hover ? hoverColour : 'rgba(255,255,255,0)' }}
+      from={{
+        fill: 'rgb(255,255,255)'
+      }}
+      to={{
+        fill: hover ? hoverColour : 'rgba(255,255,255,0)',
+        stroke: 'rgb(0,0,0)',
+        strokeWidth: hover ? 2 : 0
+      }}
     >
       {springProps =>
         <animated.RegularPolygon
