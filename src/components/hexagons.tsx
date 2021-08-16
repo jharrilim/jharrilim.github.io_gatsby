@@ -4,6 +4,7 @@ import { Layer, Stage } from 'react-konva';
 import { animated, Spring } from '@react-spring/konva';
 import { useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
+import { useEffect } from 'react';
 
 interface HexagonsProps {
   width: number;
@@ -19,6 +20,17 @@ const Hexagon: FC<Omit<RegularPolygonConfig, 'sides'>> = ({
       ? 'rgb(0,0,0)'
       : 'hsl(55, 85%, 70%)');
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHover(true);
+      setTimeout(() => setHover(false), 400);
+    }, Math.floor(Math.random() * 60000));
+
+    return () => {
+      clearInterval(interval);
+    }
+  }, [setHover]);
+  
   return (
     <Spring
       from={{ fill: 'rgb(255,255,255)' }}
