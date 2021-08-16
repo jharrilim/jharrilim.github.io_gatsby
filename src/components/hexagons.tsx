@@ -3,6 +3,7 @@ import React, { FC, useRef } from 'react';
 import { Layer, Stage } from 'react-konva';
 import { animated, Spring } from '@react-spring/konva';
 import { useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 interface HexagonsProps {
   width: number;
@@ -15,8 +16,8 @@ const Hexagon: FC<Omit<RegularPolygonConfig, 'sides'>> = ({
   const [hover, setHover] = useState(false);
   const { current: hoverColour } = useRef(
     Math.floor(Math.random() * 100) > 95
-    ? 'rgb(0,0,0)'
-    : 'hsl(55, 85%, 70%)');
+      ? 'rgb(0,0,0)'
+      : 'hsl(55, 85%, 70%)');
 
   return (
     <Spring
@@ -52,21 +53,45 @@ export const Hexagons: FC<HexagonsProps> = ({
   const strokeWidth = 2;
   const positions = (size: number, offset: number) => Array(size).fill(1).map((_, i) => ({
     x: (i + 1) * (radius * 1) * (Math.sqrt(3) / 2) + (offset * (radius - (strokeWidth * 1.5)) * 2),
-    y: (i + 1) * (radius * 2 - strokeWidth * 2.5) * Math.sin(a),
+    y: (i + 0.75) * (radius * 2 - strokeWidth * 2.5) * Math.sin(a),
   }));
 
   return (
     <Stage width={width} height={height} style={{ position: 'absolute', top: 0, left: 0 }}>
       <Layer>
-        {positions(8, 0).map(pos => <Hexagon {...pos} />)}
-        {positions(4, 1).map(pos => <Hexagon {...pos} />)}
-        {positions(3, 2).map(pos => <Hexagon {...pos} />)}
-        {positions(2, 3).map(pos => <Hexagon {...pos} />)}
-        {positions(2, 4).map(pos => <Hexagon {...pos} />)}
-        {positions(6, 5).map(pos => <Hexagon {...pos} />)}
-        {positions(3, -1).map(pos => <Hexagon {...pos} />)}
-        {positions(6, -2).map(pos => <Hexagon {...pos} />)}
-        {positions(2, -3).map(pos => <Hexagon {...pos} />)}
+        <BrowserView>
+          {positions(11, -5).map(pos => <Hexagon {...pos} />)}
+          {positions(12, -4).map(pos => <Hexagon {...pos} />)}
+          {positions(10, -3).map(pos => <Hexagon {...pos} />)}
+          {positions(6, -2).map(pos => <Hexagon {...pos} />)}
+          {positions(7, -1).map(pos => <Hexagon {...pos} />)}
+          {positions(8, 0).map(pos => <Hexagon {...pos} />)}
+          {positions(4, 1).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 2).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 3).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 4).map(pos => <Hexagon {...pos} />)}
+          {positions(6, 5).map(pos => <Hexagon {...pos} />)}
+          {positions(5, 6).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 7).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 8).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 9).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 10).map(pos => <Hexagon {...pos} />)}
+          {positions(4, 11).map(pos => <Hexagon {...pos} />)}
+        </BrowserView>
+        <MobileView>
+          {positions(5, 0).map(pos => <Hexagon {...pos} />)}
+          {positions(4, 1).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 2).map(pos => <Hexagon {...pos} />)}
+          {positions(5, 3).map(pos => <Hexagon {...pos} />)}
+          {positions(6, 4).map(pos => <Hexagon {...pos} />)}
+          {positions(4, 5).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 6).map(pos => <Hexagon {...pos} />)}
+          {positions(1, 7).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 8).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 9).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 10).map(pos => <Hexagon {...pos} />)}
+          {positions(1, 11).map(pos => <Hexagon {...pos} />)}
+        </MobileView>
       </Layer>
     </Stage>
   );
