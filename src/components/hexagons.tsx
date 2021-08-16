@@ -40,8 +40,8 @@ const Hexagon: FC<Omit<RegularPolygonConfig, 'sides'>> = ({
         <animated.RegularPolygon
           sides={6}
           radius={20}
-          stroke="black"
-          strokeWidth={2}
+          {/*stroke="black"
+          strokeWidth={2}*/}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           onTouchStart={() => {
