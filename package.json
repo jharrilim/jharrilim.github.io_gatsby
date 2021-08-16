@@ -30,8 +30,7 @@
     "react-konva": "^17.0.2-5",
     "react-spring": "^9.2.3",
     "react-visibility-sensor": "^5.1.1",
-    "tailwindcss": "^2.0.1",
-    "three": "^0.130.0"
+    "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
