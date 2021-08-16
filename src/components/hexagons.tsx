@@ -30,7 +30,7 @@ const Hexagon: FC<Omit<RegularPolygonConfig, 'sides'>> = ({
       clearInterval(interval);
     }
   }, [setHover]);
-  
+
   return (
     <Spring
       from={{ fill: 'rgb(255,255,255)' }}
@@ -89,6 +89,12 @@ export const Hexagons: FC<HexagonsProps> = ({
           {positions(2, 9).map(pos => <Hexagon {...pos} />)}
           {positions(3, 10).map(pos => <Hexagon {...pos} />)}
           {positions(4, 11).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 12).map(pos => <Hexagon {...pos} />)}
+          {positions(3, 13).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 14).map(pos => <Hexagon {...pos} />)}
+          {positions(1, 14).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 15).map(pos => <Hexagon {...pos} />)}
+          {positions(2, 16).map(pos => <Hexagon {...pos} />)}
         </BrowserView>
         <MobileView>
           {positions(5, 0).map(pos => <Hexagon {...pos} />)}
