@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -49,7 +51,7 @@ exports.onCreateWebpackConfig = ({
   plugins,
   actions,
 }) => {
-  if (stage === "build-html") {
+  if (stage === 'build-html' || stage === 'develop-html') {
     actions.setWebpackConfig({
       module: {
         rules: [
@@ -59,6 +61,6 @@ exports.onCreateWebpackConfig = ({
           },
         ],
       },
-    })
+    });
   }
 };

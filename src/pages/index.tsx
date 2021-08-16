@@ -52,7 +52,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
   const section3Ref = useRef<HTMLElement | null>(null);
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [hideHeader, sethideHeader] = useState(true);
-  const [hexCanvasDimensions, setHexCanvasDimensions] = useState({ height: window.innerHeight, width: window.innerWidth });
+  const [hexCanvasDimensions, setHexCanvasDimensions] = useState({ height: global.innerHeight, width: global.innerWidth });
   const onScroll = (ev: Event) => {
     const shouldShow = document.documentElement.scrollTop <= 2;
     setAtTopOfPage(shouldShow);
@@ -133,7 +133,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <span>⬇</span>
             </div>
           </div>
-          <Hexagons width={hexCanvasDimensions.width} height={section1Ref.current?.offsetHeight ?? window.innerHeight} />
+          <Hexagons width={hexCanvasDimensions.width} height={section1Ref.current?.offsetHeight ?? global.innerHeight} />
         </section>
         <section ref={section2Ref} className="section-2 pt-12 md:pt-16 pb-2 px-8 md:container md:mx-auto">
           <h2 id="blog-posts" className="pb-8">
