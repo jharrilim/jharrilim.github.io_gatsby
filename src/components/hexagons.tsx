@@ -1,7 +1,6 @@
-import Konva from 'konva';
 import { RegularPolygonConfig } from 'konva/lib/shapes/RegularPolygon';
 import React, { FC, useRef } from 'react';
-import { Layer, RegularPolygon, Stage } from 'react-konva';
+import { Layer, Stage } from 'react-konva';
 import { animated, Spring } from '@react-spring/konva';
 import { useState } from 'react';
 
