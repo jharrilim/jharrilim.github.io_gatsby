@@ -12,6 +12,7 @@ import { animated, Spring } from 'react-spring';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { IndexContext } from '../contexts';
+import { Hexagons } from '../components/hexagons';
 
 interface PageQuery {
   allMarkdownRemark: {
@@ -51,7 +52,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
   const section3Ref = useRef<HTMLElement | null>(null);
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [hideHeader, sethideHeader] = useState(true);
-
+  const [hexCanvasDimensions, setHexCanvasDimensions] = useState({ height: window.innerHeight, width: window.innerWidth });
   const onScroll = (ev: Event) => {
     const shouldShow = document.documentElement.scrollTop <= 2;
     setAtTopOfPage(shouldShow);
@@ -71,6 +72,14 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (section1Ref.current)
+      setHexCanvasDimensions({
+        width: Math.floor(section1Ref.current.offsetWidth - 1),
+        height: Math.floor(section1Ref.current.offsetHeight - 1),
+      });
+  }, [section1Ref.current]);
 
   const scrollToBlogPosts = useCallback(() => {
     if (section2Ref.current === null) return;
@@ -97,7 +106,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           <div className="section-1-hero flex items-center justify-center pt-4">
           </div>
           <div className="flex section-1-quotes flex-col items-center justify-evenly px-4">
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center" style={{ backgroundColor: 'var(--background)' }}>
               <Logo className="h-20 w-20 lg:h-24 lg:w-24" />
               <h1 ref={titleNameRef} className="text-center" style={{ fontFamily: 'Montserrat, Segoe UI, sans', fontSize: '1.5rem' }}>Joseph Harrison-Lim</h1>
               <blockquote
@@ -113,7 +122,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <a href="https://linkedin.com/in/joseph-harrison-lim">LinkedIn</a>.
             </blockquote>
           </div>
-          <div className="flex justify-center items-end pb-2">
+          <div className="flex justify-center items-end pb-2" style={{ zIndex: 1 }}>
             <div
               className={clsx(
                 'down-arrow',
@@ -124,6 +133,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <span>⬇</span>
             </div>
           </div>
+          <Hexagons width={hexCanvasDimensions.width} height={section1Ref.current?.offsetHeight ?? window.innerHeight} />
         </section>
         <section ref={section2Ref} className="section-2 pt-12 md:pt-16 pb-2 px-8 md:container md:mx-auto">
           <h2 id="blog-posts" className="pb-8">
