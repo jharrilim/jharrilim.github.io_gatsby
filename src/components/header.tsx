@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Link } from 'gatsby';
 import React, { forwardRef, useContext } from 'react';
 import { IndexContext } from '../contexts';
-import Logo from '../images/i.svg';
+import Logo from '../images/i2.svg';
 
 type HTMLHeaderProps = JSX.IntrinsicElements['header'];
 
