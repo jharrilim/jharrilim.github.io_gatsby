@@ -86,13 +86,11 @@ body {
 .blog-posts {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
 }
 
 @media(max-width: 768px) {
     .blog-posts {
         grid-template-columns: 1fr;
-        grid-template-rows: unset;
     }
 }
 
