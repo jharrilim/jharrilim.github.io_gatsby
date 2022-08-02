@@ -93,7 +93,6 @@ body {
 @media(max-width: 1024px) {
     .blog-posts {
         grid-template-columns: 1fr;
-        grid-template-rows: unset;
     }
 }
 
