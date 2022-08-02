@@ -30,6 +30,7 @@ const Post: FC<PostProps> = ({ children, hideHeader = false }) => {
       <Header
         className="header"
         siteTitle={data.site.siteMetadata.title}
+        style={{ position: 'sticky' }}
       />
       <main className="">{children}</main>
     </IndexContext.Provider>
