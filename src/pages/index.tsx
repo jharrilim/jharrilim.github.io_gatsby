@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
-import { GatsbyImage as Img, IGatsbyImageData } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 
 import Main from '../layouts/main';
@@ -25,21 +25,6 @@ interface PageQuery {
         };
       };
     }[];
-  };
-  p1: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  p2: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  p3: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
   };
 }
 
@@ -153,9 +138,9 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </a>
           </h2>
           <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
-            <Img
+            <StaticImage
               className="rounded"
-              image={data.p1.childImageSharp.gatsbyImageData}
+              src="../images/photos/20200114_201414.jpg"
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 flex items-center">
@@ -194,9 +179,9 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
                 </VisibilitySensor>
               </div>
             </div>
-            <Img
+            <StaticImage
               className="rounded"
-              image={data.p2.childImageSharp.gatsbyImageData}
+              src="../images/photos/20200114_201423.jpg"
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 lg:hidden flex items-center">
@@ -214,9 +199,9 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
                 }
               </VisibilitySensor>
             </div>
-            <Img
+            <StaticImage
               className="rounded"
-              image={data.p3.childImageSharp.gatsbyImageData}
+              src="../images/photos/20200114_201432.jpg"
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 flex">
@@ -260,21 +245,6 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
           }
         }
-      }
-    }
-    p1: file(relativePath: { eq: "photos/20200114_201414.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED)
-      }
-    }
-    p2: file(relativePath: { eq: "photos/20200114_201423.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED)
-      }
-    }
-    p3: file(relativePath: { eq: "photos/20200114_201432.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED)
       }
     }
   }

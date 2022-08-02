@@ -27,6 +27,7 @@ module.exports = {
         path: `${__dirname}/src/images/*.svg`,
       },
     },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
