@@ -29,6 +29,8 @@ My top choice for any of the language frameworks is [TypeGraphQL](https://typegr
 it is designed **very** well and worth looking into. This combined with [Apollo GraphQL](https://www.apollographql.com/), [TypeDI](https://github.com/typestack/typedi),
 and [TypeORM](https://typeorm.io/#/) and you have got yourself a very strong setup for creating, designing, testing, and connecting GraphQL servers and clients.
 
+> 2022-08-01: This is no longer an ideal recommendation if you are using TypeScript. There are better full-fledged solutions such as [nestjs](https://nestjs.com).
+
 ### GraphQL seems complex, why shouldn't I just use REST?
 
 REST seems complex. Why aren't you streaming binary?
@@ -47,3 +49,5 @@ This site itself uses GraphQL with [Gatsby.js](https://www.gatsbyjs.org/)!
 I have an example that you can find [here](https://github.com/jharrilim/downtime).
 
 I have also seen a trending repository use the exact same stack; you may find it [here](https://github.com/TrillCyborg/fullstack).
+
+> 2022-08-01: The above repository has been taken down.

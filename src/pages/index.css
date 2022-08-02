@@ -32,9 +32,9 @@ body {
 
 .section-2 {
     min-height: calc(100vh - 40px);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content min-content auto min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-bottom: 15px;
 }
 
@@ -52,17 +52,18 @@ body {
     background-color: var(--background);
     border-radius: 100rem;
     padding: 0.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-image: var(--border-image-source);
     width: 42px;
     height: 42px;
     text-align: center;
-    transition-property: opacity;
+    transition-property: opacity, transform;
     transition-timing-function: linear;
     transition-duration: 0.5s;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .down-arrow:active {
@@ -75,6 +76,7 @@ body {
 .down-arrow-hidden {
     opacity: 0;
     cursor: default;
+    transform: rotate(180deg) scale(0.1);
 }
 
 #blog-posts {
@@ -86,10 +88,9 @@ body {
 .blog-posts {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, minmax(0px, 1fr));
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
     .blog-posts {
         grid-template-columns: 1fr;
         grid-template-rows: unset;
@@ -98,6 +99,7 @@ body {
 
 .blog-title {
     font-size: 1.5rem;
+    font-weight: normal;
 }
 
 .blog-title:hover {
@@ -117,7 +119,7 @@ body {
 }
 
 .blog-post-item {
-    border-left: 4px solid black;
+    position: relative;
 }
 
 .header-logo {
@@ -126,35 +128,35 @@ body {
 }
 
 .quote-border-top-right {
-    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-source: var(--border-image-source);
     border-image-slice: 1;
     border-top: 2px solid;
     border-right: 2px solid;
 }
 
 .quote-border-top-left {
-    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-source: var(--border-image-source);
     border-image-slice: 1;
     border-top: 2px solid;
     border-left: 2px solid;
 }
 
 .quote-border-bottom-right {
-    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-source: var(--border-image-source);
     border-image-slice: 1;
     border-bottom: 2px solid;
     border-right: 2px solid;
 }
 
 .quote-border-right {
-    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-source: var(--border-image-source);
     border-image-slice: 1;
     border-right: 2px solid;
 }
 
 
 .quote-border-left {
-    border-image-source: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+    border-image-source: var(--border-image-source);
     border-image-slice: 1;
     border-left: 2px solid;
 }

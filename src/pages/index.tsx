@@ -1,6 +1,6 @@
 import React, { FC, useRef, useEffect, useState, useCallback } from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage as Img, IGatsbyImageData } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 
 import Main from '../layouts/main';
@@ -12,7 +12,6 @@ import { animated, Spring } from 'react-spring';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { IndexContext } from '../contexts';
-import { Hexagons } from '../components/hexagons';
 
 interface PageQuery {
   allMarkdownRemark: {
@@ -29,30 +28,29 @@ interface PageQuery {
   };
   p1: {
     childImageSharp: {
-      fluid: FluidObject;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
   p2: {
     childImageSharp: {
-      fluid: FluidObject;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
   p3: {
     childImageSharp: {
-      fluid: FluidObject;
+      gatsbyImageData: IGatsbyImageData;
     };
   };
 }
 
 const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
-  const titleNameRef = useRef<HTMLParagraphElement | null>(null);
-  const bioRef = useRef<HTMLElement | null>(null);
-  const section1Ref = useRef<HTMLElement | null>(null);
-  const section2Ref = useRef<HTMLElement | null>(null);
-  const section3Ref = useRef<HTMLElement | null>(null);
+  const titleNameRef = useRef<HTMLParagraphElement>(null);
+  const bioRef = useRef<HTMLQuoteElement>(null);
+  const section1Ref = useRef<HTMLElement>(null);
+  const section2Ref = useRef<HTMLElement>(null);
+  const section3Ref = useRef<HTMLElement>(null);
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [hideHeader, sethideHeader] = useState(true);
-  const [hexCanvasDimensions, setHexCanvasDimensions] = useState({ height: global.innerHeight, width: global.innerWidth });
   const onScroll = (ev: Event) => {
     const shouldShow = document.documentElement.scrollTop <= 2;
     setAtTopOfPage(shouldShow);
@@ -72,14 +70,6 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
       window.removeEventListener('scroll', onScroll);
     };
   }, []);
-
-  useEffect(() => {
-    if (section1Ref.current)
-      setHexCanvasDimensions({
-        width: Math.floor(section1Ref.current.offsetWidth - 1),
-        height: Math.floor(section1Ref.current.offsetHeight - 1),
-      });
-  }, [section1Ref.current]);
 
   const scrollToBlogPosts = useCallback(() => {
     if (section2Ref.current === null) return;
@@ -133,17 +123,19 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
               <span>⬇</span>
             </div>
           </div>
-          <Hexagons width={hexCanvasDimensions.width} height={section1Ref.current?.offsetHeight ?? global.innerHeight} />
         </section>
-        <section ref={section2Ref} className="section-2 pt-12 md:pt-16 pb-2 px-8 md:container md:mx-auto">
-          <h2 id="blog-posts" className="pb-8">
-            <a href="#blog-posts" onClick={scrollToBlogPosts}>
-              Blog Posts
-            </a>
-          </h2>
-          <div className="blog-posts">
+        <section ref={section2Ref} className="section-2 pt-12 md:pt-16 pb-2 px-8 md:container mx-auto">
+          <div className="w-full">
+            <h2 id="blog-posts" className="pb-8">
+              <a href="#blog-posts" onClick={scrollToBlogPosts}>
+                Blog Posts
+              </a>
+            </h2>
+          </div>
+          <div className="blog-posts gap-8 w-full">
             {data.allMarkdownRemark.edges.map(({ node: { frontmatter } }) => (
-              <div key={frontmatter.slug} className="blog-post-item pl-8 py-3">
+              <div key={frontmatter.slug} className="blog-post-item pl-8 py-8">
+                <div className="absolute top-0 left-0 w-8 h-8 quote-border-top-left"></div>
                 <h3 className="blog-title">
                   <Link to={frontmatter.slug}>
                     {frontmatter.title}
@@ -163,7 +155,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
           <div className="pt-12flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3">
             <Img
               className="rounded"
-              fluid={data.p1.childImageSharp.fluid}
+              image={data.p1.childImageSharp.gatsbyImageData}
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 flex items-center">
@@ -204,7 +196,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </div>
             <Img
               className="rounded"
-              fluid={data.p2.childImageSharp.fluid}
+              image={data.p2.childImageSharp.gatsbyImageData}
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 lg:hidden flex items-center">
@@ -224,7 +216,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
             </div>
             <Img
               className="rounded"
-              fluid={data.p3.childImageSharp.fluid}
+              image={data.p3.childImageSharp.gatsbyImageData}
               alt="Toronto, downtown"
             />
             <div className="p-4 lg:p-8 flex">
@@ -272,23 +264,17 @@ export const pageQuery = graphql`
     }
     p1: file(relativePath: { eq: "photos/20200114_201414.jpg" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     p2: file(relativePath: { eq: "photos/20200114_201423.jpg" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
     p3: file(relativePath: { eq: "photos/20200114_201432.jpg" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: CONSTRAINED)
       }
     }
   }

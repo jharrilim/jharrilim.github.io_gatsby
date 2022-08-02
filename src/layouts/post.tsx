@@ -8,7 +8,6 @@
 import React, { FC } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Header from '../components/header';
-import '../styles/tailwind.css';
 import { IndexContext } from '../contexts';
 
 export interface PostProps {
@@ -32,9 +31,7 @@ const Post: FC<PostProps> = ({ children, hideHeader = false }) => {
         className="header"
         siteTitle={data.site.siteMetadata.title}
       />
-      <div className="mx-auto my-0">
-        <main>{children}</main>
-      </div>
+      <main className="">{children}</main>
     </IndexContext.Provider>
   );
 };

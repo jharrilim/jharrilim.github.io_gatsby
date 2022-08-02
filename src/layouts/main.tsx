@@ -1,3 +1,6 @@
+import '../styles/tailwind.css';
+import './main.css';
+
 /**
  * Layout component that queries for data
  * with Gatsby's useStaticQuery component
@@ -9,10 +12,6 @@ import React, { FC } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from '../components/header';
-
-import '../styles/tailwind.css';
-import './main.css';
-import '../styles/scanlines.css';
 
 export interface MainProps {
 
