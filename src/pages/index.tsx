@@ -52,7 +52,7 @@ const IndexPage: FC<PageProps<PageQuery>> = ({ data }) => {
   const [atTopOfPage, setAtTopOfPage] = useState(true);
   const [hideHeader, sethideHeader] = useState(true);
   const onScroll = (ev: Event) => {
-    const shouldShow = document.documentElement.scrollTop <= 2;
+    const shouldShow = document.documentElement.scrollTop <= 200;
     setAtTopOfPage(shouldShow);
 
     const titleName = titleNameRef.current!.getBoundingClientRect();
