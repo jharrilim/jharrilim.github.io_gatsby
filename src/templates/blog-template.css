@@ -6,6 +6,7 @@
 
 .blog__blog-post-container p {
   line-height: 2em;
+  margin-top: 1em;
 }
 
 .blog__blog-title {
@@ -39,3 +40,15 @@ hr {
   background: linear-gradient(75deg, rgba(20, 40, 250, 20), rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
   border-top-width: 0px;
 }
+
+.blog__blog-post-container blockquote {
+  border-left: 1px solid;
+  border-image-source:
+    linear-gradient(160deg, rgba(20, 40, 250, 20),
+    rgba(190, 20, 250, 10), rgba(90, 10, 120, 10));
+  border-image-slice: 1;
+  font-style: italic;
+  margin: 1em 0;
+  padding: 1em;
+}
+
