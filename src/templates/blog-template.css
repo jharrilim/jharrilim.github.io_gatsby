@@ -9,6 +9,14 @@
   margin-top: 1em;
 }
 
+.blog__blog-post-container a {
+  color: deepskyblue;
+}
+
+.blog__blog-post-container a:visited {
+  color: blueviolet;
+}
+
 .blog__blog-title {
   padding-top: 1rem;
   font-size: 1.5rem;
