@@ -71,6 +71,12 @@ Thoughts about the path forward:
 
     - timeout should be configurable for people who host their own 
 
+  - A DSL of some form to support conditional resolvers
+
+  - Allowing JavaScript execution. Not acceptable for the current
+    server, but could be a decent option for internal usage in a trusted
+    environment.
+
 - Adding mutation support is equally tricky, because I think it'd be best
   to support both a persistent and non persistent mode. Persistence would
   be handy for actual tests, with the controlled ability to flush the 
