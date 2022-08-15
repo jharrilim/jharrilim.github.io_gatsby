@@ -91,3 +91,10 @@ Thoughts about the path forward:
 
 - It's probably useful to allow users to make multiple schemas instead
   of just one.
+
+---
+
+If you want to try out the app yourself, go to [this page](https://joe-devu.herokuapp.com/)
+and sign in with your GitHub. On your profile, you can enter in a GraphQL
+schema, save it, and then go into GraphiQL to immediately begin querying
+it.
