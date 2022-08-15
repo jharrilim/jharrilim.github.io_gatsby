@@ -22,7 +22,7 @@ const Header = forwardRef<HTMLElement, HeaderProps>(
     return (
       <header className={cls} ref={ref} {...props}>
         <div
-          className="xxl-container mx-auto my-0 flex justify-center items-center py-2"
+          className="header-inner xxl-container mx-auto my-0 flex justify-center items-center py-2"
         >
           <Logo className="h-12 w-12 md:h-16 md:w-16 pr-4 header-logo flex" />
           <p id="siteTitle" className="m-0 p-0 text-2xl" style={{ fontFamily: 'Montserrat' }}>

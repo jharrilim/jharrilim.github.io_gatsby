@@ -120,6 +120,10 @@ a:visited {
   transform: translateY(0px);
 }
 
+.header-inner {
+  height: var(--header-height);
+}
+
 .hide-header {
   transform: translateY(-100px);
 }
